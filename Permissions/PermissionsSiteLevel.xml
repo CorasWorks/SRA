@@ -1,0 +1,23 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<ListTitle>Projects</ListTitle>
+			<TableName>Projects</TableName>
+			<CAML><![CDATA[
+				<Query>
+					<Where>
+						<And>
+						<Eq><FieldRef Name="URL"/><Value Type="Text">%ISiteURL%</Value></Eq>
+						<Neq><FieldRef Name="SecurityApplied"/><Value Type="Text">Yes</Value></Neq>
+						</And>
+					</Where>
+				</Query>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly><DateInUtc>TRUE</DateInUtc></QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

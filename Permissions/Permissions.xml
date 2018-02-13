@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>
+			<CAML><![CDATA[<Query><Where><Neq><FieldRef Name='Status'/><Value Type='Text'>Opportunity</Value></Neq></Where></Query>]]></CAML>			
+<!--			
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='Working_x0020_Site_x0020_URL'/><Value Type='Text'>%ISiteURL%</Value></Eq></Where></Query><QueryOptions><DateInUtc>TRUE</DateInUtc></QueryOptions>]]></CAML>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='Proposal_x0020_Site_x0020_URL'/><Value Type='Text'>%ISiteURL%</Value></Eq></Where></Query><QueryOptions><DateInUtc>TRUE</DateInUtc></QueryOptions><ViewFields><FieldRef Name="Status"/><FieldRef Name="Business_x0020_Unit"/></ViewFields>]]></CAML>
+-->
+			<SiteUrl>[SPP Management]</SiteUrl>
+		</OperationDefinition>																		
+	</Items>
+</OperationDefinitionCollection>

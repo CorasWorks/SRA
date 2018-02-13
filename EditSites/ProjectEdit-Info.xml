@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Site</TableName>
+			<ListTitle>%SiteType%</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="URL"/><Value Type="Text">%ISiteURL%</Value></Eq></Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions><RowLimit>1</RowLimit>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

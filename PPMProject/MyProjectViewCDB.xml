@@ -1,0 +1,70 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>IncompleteSlight</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><And><And><Neq><FieldRef Name='Status'/><Value Type='Choice'>Completed</Value></Neq><Eq><FieldRef Name='AssignedTo'/><Value Type='User'>[Me]</Value></Eq></And><And><Geq><FieldRef Name='DueDate'/><Value Type='DateTime'><Today OffsetDays='-7'/></Value></Geq><Lt><FieldRef Name='DueDate'/><Value Type='DateTime'><Today/></Value></Lt></And></And><Eq><FieldRef Name='IsSummaryTask'/><Value Type='Boolean'>0</Value></Eq></And></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>IncompleteModerate</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><And><And><Neq><FieldRef Name='Status'/><Value Type='Choice'>Completed</Value></Neq><Eq><FieldRef Name='AssignedTo'/><Value Type='User'>[Me]</Value></Eq></And><And><Geq><FieldRef Name='DueDate'/><Value Type='DateTime'><Today OffsetDays='-14'/></Value></Geq><Lt><FieldRef Name='DueDate'/><Value Type='DateTime'><Today OffsetDays='-7'/></Value></Lt></And></And><Eq><FieldRef Name='IsSummaryTask'/><Value Type='Boolean'>0</Value></Eq></And></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>IncompleteExtreme</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><And><Neq><FieldRef Name='Status'/><Value Type='Choice'>Completed</Value></Neq><Lt><FieldRef Name='DueDate'/><Value Type='DateTime'><Today OffsetDays='-14'/></Value></Lt></And><And><Eq><FieldRef Name='AssignedTo'/><Value Type='User'>[Me]</Value></Eq><Eq><FieldRef Name='IsSummaryTask'/><Value Type='Boolean'>0</Value></Eq></And></And></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>UnstartedSlight</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><And><And><Eq><FieldRef Name='Status'/><Value Type='Choice'>Not Started</Value></Eq><Eq><FieldRef Name='AssignedTo'/><Value Type='User'>[Me]</Value></Eq></And><And><Geq><FieldRef Name='StartDate'/><Value Type='DateTime'><Today OffsetDays='-7'/></Value></Geq><Lt><FieldRef Name='StartDate'/><Value Type='DateTime'><Today /></Value></Lt></And></And><Eq><FieldRef Name='IsSummaryTask'/><Value Type='Boolean'>0</Value></Eq></And></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>UnstartedModerate</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><And><And><Eq><FieldRef Name="Status"/><Value Type="Choice">Not Started</Value></Eq><Eq><FieldRef Name='AssignedTo'/><Value Type='User'>[Me]</Value></Eq></And><And><Geq><FieldRef Name="StartDate"/><Value Type="DateTime"><Today OffsetDays="-14"/></Value></Geq><Lt><FieldRef Name="StartDate"/><Value Type="DateTime"><Today OffsetDays="-7"/></Value></Lt></And></And><Eq><FieldRef Name='IsSummaryTask'/><Value Type='Boolean'>0</Value></Eq></And></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>UnstartedExtreme</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><And><Eq><FieldRef Name='Status'/><Value Type='Choice'>Not Started</Value></Eq><Lt><FieldRef Name='StartDate'/><Value Type='DateTime'><Today OffsetDays='-14'/></Value></Lt></And><And><Eq><FieldRef Name='AssignedTo'/><Value Type='User'>[Me]</Value></Eq><Eq><FieldRef Name='IsSummaryTask'/><Value Type='Boolean'>0</Value></Eq></And></And></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Tasks</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><Eq><FieldRef Name="IsSummaryTask"/><Value Type="Boolean">0</Value></Eq><Eq><FieldRef Name='AssignedTo' /><Value Type='User'>[Me]</Value></Eq></And></Where></Query>]]></CAML>			
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Risks</TableName>
+			<ListTitle>Risks</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='AssignedTo' /><Value Type='User'>[Me]</Value></Eq></Where></Query>]]></CAML>			
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Deliverables</TableName>
+			<ListTitle>Deliverables</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='AssignedTo' /><Value Type='User'>[Me]</Value></Eq></Where></Query>]]></CAML>			
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>ExpenseTracking</TableName>
+			<ListTitle>Expense Tracking</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='AssignedTo' /><Value Type='User'>[Me]</Value></Eq></Where></Query>]]></CAML>			
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListInfo</RequestType>
+			<TableName>TasksMetadata</TableName>
+			<ListTitle>Tasks</ListTitle>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

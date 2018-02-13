@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>
+			<CAML><![CDATA[<Query><Where>	
+						<Or>
+						<Membership Type='CurrentUserGroups'><FieldRef Name='Approvers'/></Membership>
+						<Eq><FieldRef Name='Approvers' /><Value Type='User'>Bissmeyer, Laura E</Value></Eq>
+						</Or>		
+					</Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions><ViewFields><FieldRef Name="URL"/></ViewFields>]]></CAML>	
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<XsltLocation>[SRA Root]/Resources/MainApprovalsDisplay/ProjectApprovalsReturn_test.xslt</XsltLocation>
+			<OutputType>redirect</OutputType>
+		</OperationDefinition>
+	</Items>	
+</OperationDefinitionCollection>

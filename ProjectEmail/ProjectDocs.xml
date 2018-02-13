@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Documents</TableName>
+			<ListTitle>Documents</ListTitle>
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

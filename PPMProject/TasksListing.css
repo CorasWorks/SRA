@@ -1,0 +1,118 @@
+﻿div.NarrativeHeader {
+	width:98%;
+	font-size:large;
+	font-family:Georgia;
+	font-weight:bold;
+	text-align:center
+}
+
+span#EditNarrativeButton {
+	font-size:smaller;
+	font-weight:normal;
+	font-style:italic;
+	cursor:pointer
+}
+
+span#EditNarrativeButton:hover {
+	color:blue;
+	text-decoration:underline
+}
+
+span.HeaderSpan {
+	font-weight:normal;
+	font-size:smaller;
+}
+
+table.OrgDollarsTable{
+	border:1px #B2C8E2 solid;
+	width: 98%;
+	margin:5px 2px 5px 2px;
+}
+
+table.OrgDollarsTable tr.HeaderRow{
+	color:black;
+	font-weight:bold;
+	font-size:larger;
+	border-bottom:2px #B2C8E2 solid;
+	border-top:none;
+	text-align:center
+}
+
+table.OrgDollarsTable tr td.OrgTitle{
+	min-width:100px;
+	font-weight:bold;
+	border:1px #B2C8E2 solid;
+	padding:2px 5px 5px 5px
+}
+
+table.OrgDollarsTable tr td.FYDetail{
+	color:black;
+	text-align:center;
+	border:1px #B2C8E2 solid;
+	padding:5px;
+	min-width:50px;
+}
+
+table.OrgDollarsTable tr.SummaryRowAlternate{
+	background-color:#D3DFEE;
+}
+
+div.OtherOrgHeader {
+	text-align:center
+}
+
+table#ProjectPOCTable{
+	border:1px #B2C8E2 solid;
+	width: 98%;
+	margin:5px 2px 5px 2px;
+}
+
+.ProjectPOCTitle{
+	color:black;
+	font-weight:bold;
+	text-align:left;
+	vertical-align:top;
+	border:1px #B2C8E2 solid;
+	width: 30%;
+	padding-left: 20px;
+	font-size:12pt !important;
+}
+
+.ProjectPOCDetail{
+	color:black;
+	/*
+	border-bottom:2px #B2C8E2 solid;
+	*/
+	text-align:left;
+	padding-left: 20px;
+	border:1px #B2C8E2 solid;
+	width: 30%;
+}
+.ProjectPOCRowAlternate{
+	background-color:#D3DFEE;
+}
+
+.ProjectPOCRow div, .ProjectPOCRowAlternate div{
+	margin:2px 0 2px 0;
+}
+
+table#ProjectSummaryTable{
+	border:1px #B2C8E2 solid;
+	width: 98%;
+	margin:5px 2px 5px 2px;
+}
+
+.SummaryDetail{
+	color:black;
+	/*
+	border-bottom:2px #B2C8E2 solid;
+	*/
+	text-align:left;
+	padding-left: 20px;
+	border:1px #B2C8E2 solid;
+	width: 70%;
+}
+
+.SummaryRow div{
+	margin:2px 0 2px 0;
+}

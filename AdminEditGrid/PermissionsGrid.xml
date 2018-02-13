@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<ListTitle>Projects</ListTitle>
+			<TableName>Projects</TableName>
+			<!--
+			<CAML><![CDATA[
+				<Query>
+					<Where>
+						<Contains><FieldRef Name="ProjectState"/><Value Type="Text">Pre-Proposal Being Score</Value></Contains>
+					</Where>
+				</Query>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly><DateInUtc>TRUE</DateInUtc></QueryOptions>
+				]]>
+			</CAML>
+			-->
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

@@ -1,0 +1,493 @@
+﻿body
+{
+}
+div#main-wrapper{
+	display:none;
+}
+div#map-wrapper
+{
+	display: table;
+	height: auto;
+	margin-left: 20px;;
+	margin-right: auto; /*padding: 20px;*/
+	border-radius: 10px; /*border: 1px solid #837FA9;*/
+	-webkit-border-radius: 115px;
+	-moz-border-radius: 15px;
+}
+
+.placeholder
+{
+	color: #aaa;
+}
+
+div#tool-search-wrapper
+{
+	border: 1px solid #837FA9;
+	margin-bottom: 5px;
+	width: 275px;
+}
+div#tool-search-wrapper > img {
+	position: relative;
+	top: 3px;
+	left: 3px
+}
+
+input#tool-search
+{
+	border: none;
+	width: 245px;
+	color: #a0a0a0;
+	font-style: italic;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 3px
+}
+div#title-wrapper
+{
+	border-bottom: 1px solid #837FA9;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-top: 10px; /*background-color: #c5dbec;     border-radius: 10px;*/
+}
+div#footer-wrapper
+{
+	border-top: 1px solid #837FA9;
+	padding-right: 10px;
+	background-color: #c5dbec;
+}
+div.cw-sra-title
+{
+	font-family: Segoe UI Light;
+	font-size: 21pt;
+	color: #005293;
+	font-weight:bold;
+}
+span.cw-sra-map-methodology
+{
+	cursor:pointer;	
+}
+div.cw-sra-map-menu
+{	
+	display:none;
+	margin:10px 0;
+}
+div.mapMenuAlert
+{
+	font-size:9pt;
+	color:#005293;
+	border:1px silver solid;
+	border-radius:5px;
+	padding:3px;
+	cursor:pointer;
+	width:50%;
+	
+}
+
+div#process-map-wrapper
+{
+	display: inline-block;
+	width: 100%;
+	overflow-x: scroll;
+}
+div.cw-sra-row-head-font
+{
+	font-family: Impact, Tahoma;
+	font-size: 24px;
+}
+div.cw-sra-row-head
+{
+	background-image: url('Images/gear-128.png');
+	background-repeat: no-repeat;
+	background-size: 70px 70px;
+	background-position: center;
+	min-width: 100px;
+	max-width: 100px;
+	min-height: 80px;
+	max-height: 80px;
+	background-color: #005293;
+	color: #d7d2cb;
+	vertical-align: middle;
+	border-radius: 10px;
+	text-align: center;
+	display: table-cell;
+	cursor: pointer;
+	padding: 5px;
+}
+
+div.cw-sra-tool-table
+{
+	display: table; /*border-top: 1px solid #c5dbec;     border-bottom: 1px solid #c5dbec;*/
+	border-spacing: 5px; /*margin-top: 10px;*/
+	border-collapse:separate;
+}
+div.cw-sra-tool-row
+{
+	border-top: 1px solid #c5dbec;
+	border-bottom: 1px solid #c5dbec;
+	display: table-row;
+	height:80px;
+}
+
+
+/*sra tool*/
+div.cw-sra-tool
+{
+	min-width: 100px;
+	max-width: 100px;
+	min-height: 80px;
+	max-height: 80px;
+	vertical-align: middle;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 10pt;
+	margin-left: 2px;
+	display: table-cell;
+	cursor: pointer;
+	padding: 5px;
+}
+.cw-inactive
+{
+	background-color: #99CCFF;
+	color: #616365;
+	background-image: url('Images/box-checked.png');
+	background-repeat: no-repeat;
+	background-size: 12px 12px;
+	background-position: 90px 10px;
+}
+
+.cw-active
+{
+	background-color:#009B3A;
+	color:white;
+	/*background-color: #5c9ccc;
+	color: #c5dbec;*/
+}
+
+div.cw-sra-tool:hover
+{
+	opacity: 0.7;
+}
+div.cw-sra-row-head:hover
+{
+	opacity: 0.7;
+}
+
+/*manage stage dialog*/
+div#manage-stage > div.tool-panel
+{
+	display: inline-block;
+}
+
+div[role='dialog']
+{
+	box-shadow: 0px 0px 65px -2px rgba(31,25,29,1);
+}
+.ui-dialog-titlebar
+{
+	font-family: Segoe UI Light;
+	font-size: 16pt;
+	font-weight: normal;
+}
+.ui-dialog-content
+{
+	background-color: #c5dbec !important;
+}
+
+
+/*control wrapper with rounded corners*/
+.cw-stage-tools-wrapper
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	background-color: white;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	display: block;
+	width: 300px;
+}
+
+.static
+{
+	background-image: url('Images/key.png');
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-position: 140px 5px;
+}
+.cw-stage-tools
+{
+	width: 300px;
+	height: 380px;
+	overflow-y: scroll;
+}
+.cw-tool-title
+{
+	border-radius: 3px;
+	border: 1px solid #c5dbec;
+	font-family: Segoe UI;
+	font-size: 12pt;
+	padding: 3px 18px 3px 3px;
+	margin-bottom: 2px;
+	color: #5c9ccc;
+	width: 255px;
+}
+.cw-avail-tool:hover
+{
+	opacity: 0.7;
+	background-color: #c5dbec;
+	background-image: url('Images/Arrowhead-Right-01-blue.png');
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-position: 260px;
+	cursor: pointer;
+}
+.cw-unavail-tool
+{
+	background-color: #5c9ccc;
+	color: #c5dbec;
+	cursor: default;
+	opacity: 0.7;
+}
+.cw-tool-title-inactive
+{
+	opacity: 0.7;
+	background-color: #c5dbec;
+}
+.cw-selected-tool-title
+{
+	border-radius: 3px;
+	border: 1px solid #c5dbec;
+	font-family: Segoe UI;
+	font-size: 12pt;
+	padding: 3px 3px 3px 21px;
+	margin-bottom: 2px;
+	color: #5c9ccc;
+	width: 255px;
+}
+.cw-selected-tool-title:hover
+{
+	opacity: 0.7;
+	background-color: #c5dbec;
+	background-image: url('Images/Arrowhead-Left-01-blue.png');
+	background-repeat: no-repeat;
+	background-size: 16px 16px;
+	background-position: 3px;
+	cursor: pointer;
+}
+
+.hide
+{
+	display: none !important;
+}
+
+/*stage selector on dialog*/
+div#stage-selector
+{
+	display: inline-table; /*border-radius: 3px;     border: 1px solid #AEABC7;*/
+	font-family: Segoe UI;
+	font-size: 12pt;
+	padding: 1px;
+	margin-bottom: 2px;
+	color: #5F598F;
+	border-spacing: 5px;
+}
+div#stage-selector > div
+{
+	display: table-row;
+}
+
+div.cw-stage-btn
+{
+	display: table-cell;
+	border-radius: 3px;
+	width: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+.cw-stage-btn-active
+{
+	border: 1px solid #5c9ccc;
+	background-color: #5c9ccc;
+	color: #c5dbec;
+}
+.cw-stage-btn-inactive
+{
+	border: 1px solid #0859a5;
+	background-color: #0859a5;
+	color: #c5dbec;
+}
+div.cw-stage-btn:hover
+{
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+/*buttons*/
+.button
+{
+	text-align: center;
+	text-decoration: none;
+	font-family: Segoe UI Light;
+	-webkit-font-smoothing: antialiased;
+	font-size: 21pt;
+	color: #c5dbec;
+	background: #0859a5;
+	padding: 15px 15px 15px 15px;
+	display: inline-block;
+	white-space: nowrap;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin: 10px 0px 10px 0px;
+	-webkit-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	border-style: none;
+	float: right;
+}
+.button:hover
+{
+	/*background: #4E638E;*/
+	opacity: 0.7;
+}
+
+/*select tool dialog*/
+div#select-tool-dialog
+{
+	font-family: Segoe UI Light;
+	font-size: 18pt;
+	color: #0859a5;
+}
+.cw-dialog-wrapper
+{
+	display: table-row;
+}
+.cw-dialog-wrapper > div
+{
+	display: table-cell;
+	vertical-align: middle;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+.cw-not-checked
+{
+	background-image: url('Images/box.png');
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	background-position: 10px 10px;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.cw-checked
+{
+	background-image: url('Images/box-checked.png');
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	background-position: 10px 10px;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+div#tool-dialog-checkbox-text{
+	cursor:pointer;
+}
+div#tool-helper
+{
+	padding: 15px;
+	font-family: Arial;
+	font-size: 14pt;
+	background-color: #c5dbec;
+	color: #5c9ccc;
+	margin-bottom: 30px;
+	border-radius: 10px;
+}
+#doc-purpose-wrapper
+{
+	padding-bottom:30px;
+	border-bottom:1px silver solid;
+}
+#doc-purpose-title{
+	font-weight:bold;
+	padding-right:10px;
+}
+#doc-purpose{
+	font-size:12pt;
+}
+/* required for sharepoint override */
+.ui-dialog-titlebar-close {
+    min-width: 21px;
+}
+
+div#save-tool-wrapper{
+display:none;
+padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 5px;
+	background-color: white;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+}
+div#save-tool-btn-wrapper{
+	margin-top:15px; 
+	margin-bottom:5px
+}
+
+.disabled-checkbox{
+opacity: 0.4;
+cursor:default;	
+}
+
+.cw-save-template-btn{
+	font-size: 14pt !important;
+	width: 300px;
+	height: 50px;
+	
+}
+.cw-dialog-success{
+	background-image: url('Images/GreenCheck.png');
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	height: 32px;
+	padding-left: 50px;
+	display: table-cell;
+	vertical-align:middle;	
+}
+.cw-dialog-error{
+	background-image: url('Images/RedX.png');
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	height: 32px;
+	padding-left: 50px;
+	display: table-cell;
+	vertical-align:middle;	
+				
+}
+.cw-dialog-saving{
+	background-image: url('../_layouts/Images/save.gif');
+	background-repeat: no-repeat;
+	background-size: 32px 32px;
+	height: 32px;
+	padding-left: 50px;
+	display: table-cell;
+	vertical-align:middle;	
+				
+}
+
+.no-close .ui-dialog-titlebar-close {display: none }

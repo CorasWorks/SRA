@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>
+			<CAML><![CDATA[<Query>
+					<OrderBy>
+					  <FieldRef Name="ID"/>
+					</OrderBy>			
+					<Where>
+						<Contains><FieldRef Name='URL' /><Value Type='Text'>%ISiteURL%/</Value></Contains>			
+					</Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>	
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<XsltLocation>[SRA Root]/Resources/PPMFiles/Location/ProjectSitesMilestones.xslt</XsltLocation>
+			<OutputType>redirect</OutputType>		
+		</OperationDefinition>
+	</Items>	
+</OperationDefinitionCollection>

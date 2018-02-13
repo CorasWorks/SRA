@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+					<IsNotNull><FieldRef Name='APID'/></IsNotNull>
+					</Where></Query>]]></CAML>
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

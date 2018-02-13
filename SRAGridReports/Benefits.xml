@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl>%ProjectURL%</SiteUrl>
+			<ListTitle>Project Benefits</ListTitle>
+			<TableName>Benefits</TableName>
+			<CAML><![CDATA[
+				%CAPSCAML%
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="Month"/>
+					<FieldRef Name="Division"/>
+					<FieldRef Name="Region"/>
+					<FieldRef Name="Location"/>
+					<FieldRef Name="FinancialCategory"/>
+					<FieldRef Name="FinancialSubcategory"/>
+					<FieldRef Name="Actual"/>
+					<FieldRef Name="Target"/>
+				</ViewFields>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

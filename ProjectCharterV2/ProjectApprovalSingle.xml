@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Approvals</TableName>
+			<ListTitle>Approvals</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+						<Eq><FieldRef Name='ID' /><Value Type='Counter'>%APID%</Value></Eq>	
+					</Where></Query><QueryOptions><DateInUtc>False</DateInUtc><IncludeAttachmentUrls>True</IncludeAttachmentUrls></QueryOptions>]]></CAML>	
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+	</Items>	
+</OperationDefinitionCollection>

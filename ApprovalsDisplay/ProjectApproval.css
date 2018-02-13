@@ -1,0 +1,49 @@
+﻿#PCDisplayRoot div{
+/*
+	position:absolute;class="SectionBase"
+	*/
+}
+#PCDisplayRoot .SectionBase{
+	border: 1px #666666 solid;
+	padding: 10px;
+	border-radius:3px;	
+}
+#PCDisplayRoot div#PCInfo{
+	border:0px;  
+} 
+#PCDisplayRoot div#PCInfo p{
+ margin:0px;
+ text-align:center;	
+}
+#PCDisplayRoot div h2{
+	color:#005293;
+	text-align:left;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	background-color:#efefef;
+	padding-left:5px;
+	border-radius:3px;
+	border-top:1px #dfdfdf solid;
+	border-left:1px #dfdfdf solid;
+}
+#PCDisplayRoot div p{
+	text-align:left;
+}
+ 
+.ui-button{margin-right:3px;padding:3px;}
+.ButtonMainHolder{
+	margin-bottom:10px;
+}
+.ButtonSubHolder{
+	display:inline; 
+	padding:5px;
+	text-align:left;
+}
+label {
+	font-weight:bold;
+	
+}
+.SectionBase p {
+	vertical-align:middle;
+	font-size: 1.2em;
+}

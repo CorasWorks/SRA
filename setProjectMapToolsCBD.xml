@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>ProcessBatchData</RequestType>
+			<ListTitle>Map</ListTitle>
+			<Batch>
+				<![CDATA[
+					<ows:Batch OnError="Return">
+						<Method ID="A1">
+							<SetList>%Map%</SetList>
+							<SetVar Name="ID">%ID%</SetVar>
+							<SetVar Name="Cmd">%Command%</SetVar>
+						</Method>										
+					</ows:Batch>
+				]]>
+			</Batch>
+		</OperationDefinition>
+	</Items>	
+</OperationDefinitionCollection>

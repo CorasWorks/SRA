@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <title>Custom Form v1</title>
+    <link href="/_layouts/AppDesigner/Content-Cache/libs/jqueryui/1.10.3/css/base/jquery-ui.css" rel="stylesheet">
+    <link href="../../Resources/SRAProjectCustom/SRAProject.css" rel="stylesheet">
+    <!--ActionVars-->
+</head>
+<body>
+<!-- Loader -->
+<div id="busyLoader" style="text-align: center;">
+    <h2 style="text-align:center">
+        <span id="busySpinner"></span>
+        <img src="/_layouts/AppDesigner/Apps/ApplicationDesigner/Images/ProcessDesigner.gif" style="vertical-align:middle;padding:5px">
+        <br>
+        Loading Form...
+    </h2>
+    Don't refresh the page, just wait patiently please
+</div>
+    <div id="ActionForm" style="display:none">
+    <!--
+        Action Title: <span id="CWActionTitle"></span><br/>
+        Action Category: <span id="CWActionCategory"></span><br/>
+    --> 
+    	<span id="CWActionTitle"></span><br/>   
+        <span id="CWActionDescription"></span>
+        <div class="FormButtons">
+            <button class="Cancel">Cancel</button>
+            <button class="Save">Save</button>
+        </div>
+        <div style="clear:both"></div>
+        <div id="TabbedForm">
+            <ul>
+            	<!--
+                <li><a href="#WhatTab">What</a></li>
+                <li><a href="#HowTab">How</a></li>
+                -->
+                <li><a href="#ResultTab">Project Entry Form</a></li>
+            </ul>
+            <!--
+            <div id="WhatTab">
+                <h3>What does overriding an Action Form mean?</h3>
+                <p>Overriding an Action Form enables anyone with a web developer skillset to customize the design and logic of a SharePoint form, but allowing the CorasWorks Actions Service to provide the "heavy lifting" while also inheriting the added features of our Actions framework.</p>
+                <p>This means chaining Actions, kicking off SharePoint Designer workflows and even executing Service calls are all still possible even when overriding your form's UI.</p>
+            </div>
+            <div id="HowTab">
+                <h3>How does it work?</h3>
+                <p>It's pretty ingenious actually...</p>
+                <ol>
+                	<li>Within an Action Definition, simply provide the URL to the custom form page you wish to override the standard Action form with</li>
+                	<li>At runtime, your custom page will be displayed while a Service will automatically inject into the page all the parameters you need to query the Action Definition</li>
+                	<li>A basic AJAX call then returns the Action Definition as a JSON object</li>
+                	<li>Craft a custom form via standard HTML/JS/CSS or even parse/iterate over the resulting JSON definition to dynamically render a form (see next tab)</li>
+                	<li>When you're ready to save, just update the JSON definition with the values you want to save and send it back to the Service</li>
+                </ol>
+            </div>
+            -->
+            <div id="ResultTab">
+            <!--
+                <h3>New SRA Project</h3>
+            -->    
+                <div id="DynamicForm">
+                
+	                <label for="Title">Project Name<sup class="CWRequired">*</sup></label>
+					<input type="text" class="CWInput" id="Title" name="Title"><br/>
+					<span class="CWFormDescription"></span><br/>
+					
+	                <label for="Division">Division<sup class="CWRequired">*</sup></label>
+					<select name="Division" id="Division">
+						<option selected="selected" disabled="disabled">Select a Division</option>
+					</select>
+					<span class="CWFormDescription"></span><br/>
+
+	                <label for="Region">Region<sup class="CWRequired">*</sup></label>
+					<select name="Region" id="Region" disabled="disabled">
+						<option selected="selected" disabled="disabled">Select a Region</option>
+					</select>
+					<span class="CWFormDescription"></span><br/>
+					
+	                <label for="Location">Location<sup class="CWRequired">*</sup></label>
+					<select name="Location" id="Location" disabled="disabled">
+						<option selected="selected" disabled="disabled">Select a Location</option>
+					</select>
+					<span class="CWFormDescription"></span><br/>
+					
+	                <label for="ProjectSecurity">Project Security<sup class="CWRequired">*</sup></label>
+					<select name="ProjectSecurity" id="ProjectSecurity">
+					</select>
+					<span class="CWFormDescription"></span><br/>
+<!--					
+	                <label for="Methodology">Methodology<sup class="CWRequired">*</sup></label>
+					<select name="Methodology" id="Methodology">
+						<option selected="selected" disabled="disabled">Select a Methodology</option>					
+					</select>
+					<span class="CWFormDescription"></span><br/>
+-->						
+	                <label for="Category">Category</label>
+					<select name="Category" id="Category" req="false">
+						<option selected="selected" disabled="disabled">Select a Category</option>
+					</select>
+					<span class="CWFormDescription"></span><br/>
+				
+					<!--
+	                <label for="ProjectStartDate">Team Launch Date<sup class="CWRequired">*</sup></label>
+					<input type="text" class="CWInput" id="ProjectStartDate" name="ProjectStartDate"><br/>
+					<span class="CWFormDescription">Enter the date your team will or is expected to launch this project.</span><br/>
+					-->					     
+                </div>
+                <!--
+                <button class="HiddenToggle">"Hidden" Action parameters</button>
+                <div id="HiddenParameters"></div>
+                -->
+            </div>
+        </div>
+        <div class="FormButtons">
+            <button class="Cancel">Cancel</button>
+            <button class="Save">Save</button>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <script src="/_layouts/AppDesigner/Content-Cache/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/_layouts/AppDesigner/Content-Cache/libs/jqueryui/1.10.3/jquery-ui-1.10.3.custom.min.js"></script>
+    <script id="actionjs" src="/_layouts/CorasWorks.Central.Administration/Resources/CorasWorks/Scripts/CWS_ActionControls.js"></script>
+    <script src="/_layouts/AppDesigner/components/caps/1.0.6/caps.js"></script>
+    <script src="../../Resources/SRAProjectCustom/SRAProject.js"></script>
+</body>
+</html>

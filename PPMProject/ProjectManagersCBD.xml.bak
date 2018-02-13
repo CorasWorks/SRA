@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>SiteDirectory</TableName>
+			<ListTitle>Site Directory</ListTitle>
+			<SiteUrl>[PPM v3.2]</SiteUrl>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='URL' /><Value Type='Text'>%SiteURL%</Value></Eq></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<!--<OperationDefinition>
+			<RequestType>GetSiteInfo</RequestType>
+			<TableName>Users</TableName>
+		</OperationDefinition>-->
+	</Items>
+</OperationDefinitionCollection>

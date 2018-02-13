@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+			<Neq><FieldRef Name="Role"/><Value Type="Text">SiteLevelApprover</Value></Neq>
+			</Where></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>%ProjectURL%</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

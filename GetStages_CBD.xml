@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Stages</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<TableName>Stages</TableName>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Purpose"/>
+						<FieldRef Name="Initial"/>
+						<FieldRef Name="Active"/>											
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>	
+	</Items>
+</OperationDefinitionCollection>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where><IsNotNull><FieldRef Name='Role'/></IsNotNull></Where></Query>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>BaseSecuritySet</TableName>
+			<ListTitle>Base Security Set</ListTitle>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>ProjectRoles</TableName>
+			<ListTitle>ProjectRoles</ListTitle>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>RoleSecurityLevels</TableName>
+			<ListTitle>RoleSecurityLevels</ListTitle>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>																						
+	</Items>
+</OperationDefinitionCollection>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Tasks</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<SiteUrl></SiteUrl>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='IsSummaryTask' /><Value Type='Boolean'>0</Value></Eq><OrderBy><FieldRef Name="DueDate"/></OrderBy></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>ProjectDetails</TableName>
+			<ListTitle>Site Directory</ListTitle>
+			<SiteUrl>[PPM v3.2]</SiteUrl>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='PPMSiteURL' /><Value Type='Text'>%SiteURL%</Value></Eq></Where></Query>]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListInfo</RequestType>
+			<TableName>TasksMetadata</TableName>
+			<ListTitle>Tasks</ListTitle>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

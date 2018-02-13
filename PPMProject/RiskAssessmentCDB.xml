@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Risks</TableName>
+			<ListTitle>Risks</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='Status' /><Value Type='Choice'>Risk</Value></Eq></Where></Query>]]></CAML>			
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListInfo</RequestType>
+			<TableName>RisksMetadata</TableName>
+			<ListTitle>Risks</ListTitle>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

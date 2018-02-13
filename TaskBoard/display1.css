@@ -1,0 +1,61 @@
+﻿#theBoard{
+	width:98%;
+	height:600px;
+	border:1px lime solid;
+	padding:5px;
+	border-radius:10px;
+	margin:3px;	
+}
+#boardTitle{
+	font:bold 16pt Arial;
+	margin-bottom:10px;
+	border-bottom:1px lime solid;
+}
+#boardData{
+	height:100%;
+	text-align:center;
+	display:none;
+}
+.boardColumn{
+	display:inline-block;
+	margin:0px 3px;
+	padding:0px 10px 10px 10px;
+	border:1px lime solid;	
+	border-radius:5px;
+	width:17%;
+	height:550px;
+	vertical-align:top;
+}
+.colTitle{
+	display:block;
+	margin:3px;
+	font:bold 14pt Arial;	
+	border-bottom:1px lime solid;
+}
+.boardItem{
+	display:block;
+	border:1px silver solid;
+	padding:10px;
+	margin:5px;
+	border-radius:5px;
+	text-align:left;
+}
+.boardItem .title
+{
+	font:bold 12pt Arial;
+}
+.boardItem .assignedTo{
+	color:gray;
+	font-size:8pt;
+}
+
+.priorityHigh{
+	background-color:#FFC2C2;
+}
+.priorityMedium{
+	background-color:#FFFFC2;
+}
+.priorityLow{
+	background-color:#C2FFC2;
+}
+

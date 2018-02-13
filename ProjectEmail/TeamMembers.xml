@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query>
+			<OrderBy><FieldRef Name="SharePointUser"/></OrderBy>
+			<Where>
+			<Neq><FieldRef Name="Role"/><Value Type="Text">SiteLevelApprover</Value></Neq>
+			</Where></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>					
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

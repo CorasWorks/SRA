@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<!--
+			<SiteUrl>%ProjectURL%</SiteUrl>
+			<SiteUrl>http://corning.corasworks.net/sites/sra/div31/Reg69/Loc51/Pro21</SiteUrl>
+			<CAML><![CDATA[
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly><DateInUtc>TRUE</DateInUtc></QueryOptions>
+				]]>
+			</CAML>
+
+			-->
+			<SiteUrl>%ProjectURL%</SiteUrl>
+			<ListTitle>Tasks</ListTitle>
+			<TableName>Tasks</TableName>
+			<CAML><![CDATA[
+				%CAPSCAML%
+				]]>
+			</CAML>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

@@ -1,0 +1,111 @@
+﻿#PCDisplayRoot div{
+/*
+	position:absolute;class="SectionBase"
+	*/
+}
+#PCDisplayRoot .SectionBase{
+	border: 1px #666666 solid;
+	padding: 10px;
+	border-radius:3px;	
+}
+#PCDisplayRoot div#PCInfo{
+	border:0px;  
+} 
+#PCDisplayRoot div#PCInfo p{
+ margin:0px;
+ text-align:center;	
+}
+#PCDisplayRoot div h2{
+	color:#005293;
+	text-align:left;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	background-color:#efefef;
+	padding-left:5px;
+	border-radius:3px;
+	border-top:1px #dfdfdf solid;
+	border-left:1px #dfdfdf solid;
+}
+#PCDisplayRoot div p{
+	text-align:left;
+}
+#PCDisplayRoot div#PCMulti1, #PCDisplayRoot div#PCMulti2, #PCDisplayRoot div#PCMulti3{
+	border:0px;
+	padding: 0px;
+}
+#ProContacts thead tr th, #ProMilestones thead tr th, #ProDocuments thead tr th{
+	text-align:center;
+}
+#PCResources table thead tr th, #ProResources tbody tr th, #ProResources tbody tr td{
+	text-align:right;
+}
+#PCFinancial table thead tr th, #ProFinancial tbody tr th, #ProFinancial tbody tr td{
+	text-align:right;
+}
+
+ 
+#PCMulti2{
+	width:48%;
+	float:left;
+	margin-left: auto;
+    margin-right: auto;
+}
+#PCMulti3{
+	width:50%;
+	float:right;
+	margin-left: auto;
+    margin-right: auto;
+}
+#ProDocuments a{
+	cursor:pointer;
+}
+#PCContacts td,#ProMilestones td, #ProDocuments td{
+		text-align:center;
+}
+table#ProResources, table#ProFinancial{
+	text-align:center;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+#ProFinancial, #ProApproval, #ProResources {
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+    text-align:right;
+
+}
+.PCName1{
+	font-weight:bold;
+	font-size:2.2em; 	
+}
+.PCName2 .PCHeader{
+	font-weight:bold;
+	color:#005293;
+} 
+.PCName3 .PCHeader{
+	font-weight:bold;
+	color:#005293;
+} 
+.PCName4 .PCHeader{
+	font-weight:bold;
+	color:#005293;
+} 
+ 
+.ui-button{margin-right:3px;padding:3px;}
+.ButtonMainHolder{
+	margin-bottom:10px;
+}
+.ButtonSubHolder{
+	display:inline; 
+	padding:5px;
+	text-align:left;
+}
+#PCProject .PCLabel{
+	font-weight:bold;
+	text-align:right !important;
+}
+
+#PCProject td{
+	text-align:left;
+	padding-left: 10px;
+}

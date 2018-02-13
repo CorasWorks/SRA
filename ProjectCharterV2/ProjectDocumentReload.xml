@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Documents</TableName>
+			<ListTitle>Documents</ListTitle>
+			<CAML><![CDATA[
+					<Query>
+					<OrderBy><FieldRef Name='Modified' Ascending='False'/></OrderBy></Query>
+					<QueryOptions><ViewAttributes Scope='Recursive'/><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

@@ -1,0 +1,245 @@
+﻿
+#loaderDiv {
+    /*height: 500px;
+    position: relative;
+    background-color: #F0F1FF ; /* for demonstration */
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1000;
+    /*background-color:#F0F1FF;*/
+    opacity: .8;
+}
+.ajax-loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px; /* -1 * image width / 2 */
+    margin-top: -32px;  /* -1 * image height / 2 */
+    display: block;     
+}
+
+
+.toggleTaskDetails{
+	cursor:pointer;	
+}
+
+.ui-icon .ui-icon-closethick {display: none;}
+.noclose .ui-dialog-titlebar-close
+{
+    display:none;
+}
+
+
+.required-Field{
+	color:red;
+	font-size:20pt;	
+}
+.input-Form tr {
+	margin-top: 10px;
+}
+.new-Task{
+	display:none;
+	color: #f6931f;
+}
+
+table {
+	border-collapse:collapse;
+}
+.activeFilter{
+	color:#f6931f;
+	font-weight:normal;
+	font-size:.8em;
+}
+.filter-checked {
+	z-index: 50;
+	position: absolute;
+}
+.edit-Actions {
+	float: right;
+}
+.edit-Form-noEdit {
+	color: #663300;
+}
+.edit-Form-Edit {
+	color: #f6931f;
+}
+#edit-Task-Title {
+	font-weight: bold;
+	color: black;
+}
+.legend-section {
+	color: #000000;
+	/*background-color: #FFCC00;*/
+	font-weight: bold;
+	font-size: 1.2em;
+	margin: 1px;
+}
+.legend-items {
+	font-size: 1em;
+}
+.progressbar {
+	height: 12px;
+	/*display: none;*/
+	margin-bottom:.5em;
+}
+.projectManagers li {
+	list-style-type: none;
+}
+.task-Priority-Star {
+	cursor: pointer;
+}
+.task-Details {
+	/*display: none;*/
+	font-size:.8em;
+}
+#taskEdit {
+	width: 300px;
+}
+.task-instructions {
+	color: gray;
+	font-size: 7pt;
+	font-style: italic;
+	text-align: center;
+}
+.teamMembers li {
+	list-style-type: none;
+}
+.tasksTable{
+	width:100%;
+}
+.tasksTable tbody tr td {
+}
+.tasksTable thead tr td{
+	text-align: center;
+	font-weight: bolder;
+	width:10%;
+}
+
+.task-Table-Overlay {
+	background-image: url('../Images/Backgrounds/edit_bg.png');*/;
+	opacity: 0.5;
+	filter: alpha(opacity=50); /* For IE8 and earlier */
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: none;
+}
+#statusColumnHeaders td {
+	margin:.1em;
+}
+#statusColumnHeaders td div{
+	width:98%;
+	
+}
+.sortable {
+	list-style-type: none;
+	margin: 2px;
+	padding: 2px 2px;
+	float: left;
+	margin-right: 10px;
+	width: 95%;
+	background-color: #F0F1FF;
+	height:450px;
+	overflow:auto;
+}	
+	/*ie scrollbar styling */
+<!--.sortable {
+   scrollbar-face-color:transparent;
+   scrollbar-arrow-color:#333333;
+   scrollbar-track-color:#ededed;
+   scrollbar-shadow-color:#6c6c6c;
+   scrollbar-highlight-color:#ffffff;
+   scrollbar-3dlight-color:#ffffff;
+   scrollbar-darkshadow-Color:#6c6c6c;
+   
+}-->
+.sortable li {
+	list-style-type: none;
+	margin: 0 5px 5px 5px;
+	padding: 5px;
+	font-size: 1.1em;
+	width: 80%;
+}
+.img-Clickable {
+	cursor: pointer;
+}
+#priority-filter, #pastdue-filter, #assignment-filter {
+	cursor: pointer;
+}
+#user-select{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 1.0em;
+	color: #f6931f;
+	width: 95%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	display: none;
+}
+.instructions {
+	font-style: italic;
+	color: #C0C0C0;
+	font-family: "Calibri";
+	text-align: center;
+}
+#project-Site-Users {
+	display: none;
+}
+.checkbox-AssignedTo, .checkbox-AssignedTo-All {
+	padding-right: 3px;
+}
+#statusColumnHeaders{
+	font-size:1.2em;
+}
+#taskEdit {
+	display: none;
+	z-index: 99;
+	padding: 10px;
+	position: absolute;
+}
+.task-Item {
+	cursor: move;
+	font-size:9px;
+	z-index: 2;
+}
+.rounded-corners {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+.legend-section{
+	border-top:1px #CCCCCC inset;
+	border-bottom:1px #CCCCCC inset;
+	margin:.2em;
+	padding:.1em;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+}
+.legend-container{
+	padding:.3em .1em .1em 1.0em
+}
+#AssignedToSelector div{
+	margin-top:.3em;
+}
+#AssignedToSelector{
+	height:60px;
+	margin:.3em;
+	padding:.5em;
+	overflow:auto;
+	background-color:#ffffff;
+	border-right: 1px
+}
+
+.searchTasks{
+	color:#CCCCCC;
+	width:95%;
+	border:1px solid;
+	font-style:italic;
+	margin:.3em
+}

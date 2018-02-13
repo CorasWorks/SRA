@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Milestones</ListTitle>
+			<SiteUrl>%SiteURL%</SiteUrl>
+			<TableName>LocalMilestones</TableName>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="TargetDate"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

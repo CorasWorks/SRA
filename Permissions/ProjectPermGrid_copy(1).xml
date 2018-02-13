@@ -1,0 +1,41 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl></SiteUrl>
+			<ListTitle>Projects</ListTitle>
+			<TableName>ProjectsLead</TableName>
+			<CAML><![CDATA[
+				<Query>
+					<Where>
+						<Eq><FieldRef Name="TeamLeader"/><Value Type="User">[Me]</Value></Eq>
+					</Where>
+				</Query>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly><DateInUtc>TRUE</DateInUtc></QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl></SiteUrl>
+			<ListTitle>Projects</ListTitle>
+			<TableName>ProjectsMember</TableName>
+			<CAML><![CDATA[
+				<Query>
+					<Where>
+						<Contains><FieldRef Name="TeamMembers"/><Value Type="User">[Me]</Value></Contains>
+					</Where>
+				</Query>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly><DateInUtc>TRUE</DateInUtc></QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl></SiteUrl>
+			<ListTitle>Divisions</ListTitle>
+			<TableName>Divisions</TableName>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

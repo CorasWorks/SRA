@@ -1,0 +1,28 @@
+﻿<style>
+#portmessage{
+	font-size:1.75em;
+}
+</style>
+<div id="portmessage">
+<p>Welcome to you Portfolio Page!</p>
+<p></p>
+<p>Here you have access to reports which you can use for monitoring and reporting needs.</p>
+<p></p>
+<p>The reports available for you are:</p>
+<ul>
+   <li>
+      <strong>Portfolio Milestones:</strong> This Shows a timeline of all projects milestones in your portfolio</li>
+   <li>
+      <strong>Tasks By Team Members:</strong> This shows a list of all task assigned to team members in your portfolio by task status</li>
+   <li>
+      <strong>Team Members task Timeline:</strong> This shows in a timeline view all task assigned to team members in your portfolio</li>
+   <li>
+      <strong>Reports:</strong> 2 reports reside within this tab. Both reports can be downloaded to other formats and customized for your needs</li>
+   <ul>
+      <li>
+         <strong>Pex Savings Report</strong></li>
+      <li>
+         <strong>Resource Utilization </strong></li>
+   </ul>
+</ul>
+</div>

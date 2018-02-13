@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8f30c83e-1e02-43d4-8481-6335df5ed294" name="SRA Resources" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="/Volumes/Resources" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

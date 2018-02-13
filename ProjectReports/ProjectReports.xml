@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Reports</TableName>
+			<ListTitle>Project Level Reports</ListTitle>
+			<CAML><![CDATA[
+			
+			<Query>
+			<OrderBy>
+			 <FieldRef Name="ReportOrder" Ascending = "TRUE"/>
+			</OrderBy>			
+			<Where><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+	</Items>	
+</OperationDefinitionCollection>

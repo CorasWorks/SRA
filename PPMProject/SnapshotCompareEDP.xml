@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CorasWorks>
+	<Data>
+		<Name>Snapshot</Name>
+		<Default>true</Default>
+		<ConnectionType>File</ConnectionType>
+		<FileLocation>%SnapshotFile%</FileLocation> 
+		<OutputType>text/xml</OutputType>
+		<UseCurrentUserCredentials>3</UseCurrentUserCredentials> 
+		<XslStylesheetLocation>%SiteSecurityType%%HostName%/CWPPM32/Project/SnapshotCompareChart.xslt</XslStylesheetLocation>
+	<Values>
+		<SnapshotFile />
+	</Values>
+	</Data>
+</CorasWorks>

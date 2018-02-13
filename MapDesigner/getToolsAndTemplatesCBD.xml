@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Reference Documents</ListTitle>
+			<TableName>ReferenceDocuments</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<OrderBy>
+							<FieldRef Name="Title"/>
+						</OrderBy>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="FileRef"/>
+						<FieldRef Name="FileLeafRef"/>
+						<FieldRef Name="Methodology"/>
+						<FieldRef Name="Language"/>
+						<FieldRef Name="DocIcon"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+						<ViewAttributes Scope="RecursiveAll" />
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

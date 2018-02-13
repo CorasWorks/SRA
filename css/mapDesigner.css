@@ -1,0 +1,282 @@
+﻿div.sra-map-designer-menu, div.sra-map-container{
+	padding:10px;
+	border:1px #837FA9 solid;
+	border-radius: 5px;
+	margin:3px;
+}
+#sra-Maps
+{
+	padding:5px;
+}
+div.mapTitle
+{
+    border-bottom: 1px solid #837FA9;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-top: 10px; /*background-color: #F3EFAD;     border-radius: 10px;*/
+    font-family: Segoe UI Light;
+    font-size: 21pt;
+    color: #A9A345;
+    cursor:pointer;
+}
+
+
+
+div#main-wrapper
+{
+    display: table;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto; /*padding: 20px;*/
+    border-radius: 10px; /*border: 1px solid #837FA9;*/
+    -webkit-border-radius: 115px;
+    -moz-border-radius: 15px;
+}
+
+.placeholder
+{
+    color: #aaa;
+}
+
+input#tool-search
+{
+    border: 1px solid #837FA9;
+    width: 200px;
+    margin-bottom: 5px;
+    width: 278px;
+    color: #a0a0a0;
+    font-style: italic;
+}
+div#footer-wrapper
+{
+    border-top: 1px solid #837FA9;
+    padding-right: 10px;
+    background-color: #D9D8E5;
+}
+
+div#process-map-wrapper
+{
+    display: inline-block;
+    width: 1200px;
+}
+div.cw-sra-row-head-font
+{
+    font-family: Impact, Tahoma;
+    font-size: 35px;
+    /*color: #F3EFAD;*/
+}
+
+div.stages
+{
+    display: none; /*border-top: 1px solid #F3EFAD;     border-bottom: 1px solid #F3EFAD;*/
+    border-spacing: 10px; /*margin-top: 10px;*/
+}
+div.cw-sra-tool-row
+{
+    border-top: 1px solid #F3EFAD;
+    border-bottom: 1px solid #F3EFAD;
+    display: table-row;
+}
+
+
+/*sra tool*/
+div.cw-sra-tool
+{
+    /*height: 100px;
+    width: 150px;*/
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    vertical-align: middle;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 5px;
+    display: table-cell;
+    cursor: pointer;
+    padding: 5px;
+}
+.inactive
+{
+    background-color: #A9A345;
+    color: #F3EFAD;
+}
+
+.active
+{
+    background-color: #F3EFAD;
+    color: #A9A345;
+}
+
+div.cw-sra-row-head
+{
+    background-image: url('Images/gear-128.png');
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: 90px 90px;
+    background-position: 5px;
+    min-width: 100px;
+    max-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+    background-color: #403975;
+    color: #D9D8E5;
+    vertical-align: middle;
+    border-radius: 10px;
+    text-align: center;
+    display: table-cell;
+    cursor: pointer;
+}
+div.cw-sra-tool:hover
+{
+    opacity: 0.7; /*-webkit-box-shadow: 0px 0px 20px -2px rgba(0,0,0,1);     -moz-box-shadow: 0px 0px 20px -2px rgba(0,0,0,1);     box-shadow: 0px 0px 20px -2px rgba(0,0,0,1);*/
+}
+div.cw-sra-row-head:hover
+{
+    opacity: 0.7;
+}
+
+/*manage stage dialog*/
+div#manage-stage > div.tool-panel
+{
+    display: inline-block;
+}
+
+div[role='dialog']
+{
+    box-shadow: 0px 0px 65px -2px rgba(31,25,29,1);
+}
+.ui-dialog-titlebar
+{
+    font-family: Segoe UI Light;
+    font-size: 16pt;
+    font-weight: normal;
+}
+.ui-dialog-content
+{
+    background-color: #D9D8E5 !important;
+}
+
+
+/*control wrapper with rounded corners*/
+.cw-stage-tools-wrapper
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    display: block;
+    width: 300px;
+}
+
+.cw-stage-tools
+{
+    width: 300px;
+    height: 380px;
+    overflow-y: scroll;
+}
+.cw-tool-title
+{
+    border-radius: 3px;
+    border: 1px solid #F3EFAD;
+    font-family: Segoe UI;
+    font-size: 12pt;
+    padding: 3px;
+    margin-bottom: 2px;
+    color: #A9A345;
+}
+.cw-tool-title:hover
+{
+    opacity: 0.7;
+    background-color: #F3EFAD;
+}
+.cw-tool-title-inactive
+{
+    opacity: 0.7;
+    background-color: #F3EFAD;
+}
+
+.hide
+{
+    display: none !important;
+}
+
+/*stage selector on dialog*/
+div#stage-selector
+{
+    display: inline-table; /*border-radius: 3px;     border: 1px solid #AEABC7;*/
+    font-family: Segoe UI;
+    font-size: 12pt;
+    padding: 1px;
+    margin-bottom: 2px;
+    color: #5F598F;
+    border-spacing: 5px;
+}
+div#stage-selector > div
+{
+    display: table-row;
+}
+
+div.cw-stage-btn
+{
+    display: table-cell;
+    border-radius: 3px;
+    width: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.cw-stage-btn-active
+{
+    border: 1px solid #A9A345;
+    background-color: #A9A345;
+    color: #F3EFAD;
+}
+.cw-stage-btn-inactive
+{
+    border: 1px solid #403975;
+    background-color: #403975;
+    color: #D9D8E5;
+}
+div.cw-stage-btn:hover
+{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+/*buttons*/
+.button
+{
+    text-align: center;
+    text-decoration: none;
+    font-family: Segoe UI Light;
+    -webkit-font-smoothing: antialiased;
+    font-size: 21pt;
+    color: #D9D8E5;
+    background: #403975;
+    padding: 15px 15px 15px 15px;
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin: 10px 0px 10px 0px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border-style: none;
+    float: right;
+}
+.button:hover
+{
+    /*background: #4E638E;*/
+    opacity: 0.7;
+}

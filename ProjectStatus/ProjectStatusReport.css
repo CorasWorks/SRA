@@ -1,0 +1,85 @@
+﻿@media print {
+    #PrintReport {        
+		display:none;
+    }
+}
+.projectStatusReportDisplayWrapper{
+	display:none;	
+}
+#projectStatusReportHeader{
+	margin-bottom:10px;
+	border-bottom:1px black solid;
+}
+#ProjectTitle{
+	font-size:18pt;
+	font-weight:bold;
+	text-align:center;
+}
+#ProjectLastUpdate{
+	text-align:center;
+	font-size:10pt;
+}
+
+.projectStatusReportWrapper{
+	font-family:Arial, Helvetica, sans-serif;
+}
+.projectStatusKPIsWrapper, .projectStatusAvailableKPIsWrapper {
+	overflow:auto;
+}
+.projectKPI, .projectAvailableKPI{
+	border-top:1px #ccc solid;
+	border-left:1px #ccc solid;
+	border-bottom:1px #666 solid;
+	border-right:1px #666 solid;
+	
+	padding:5px;
+	margin:5px;
+	display:inline-block;	
+	border-radius:3px;
+	min-width:100px;
+	background-color:white;
+	text-align:left;
+}
+.projectKPI img{
+	padding-right:5px;
+	vertical-align:middle;
+}
+.projectKPI span{
+	font-weight:bold;
+}
+#projectStatusReportBody{
+	font-size:10pt;
+}
+#projectStatusReportBodyLeftColumn, #projectStatusReportBodyRightColumn{
+	min-height:600px;
+	width:49%;
+}
+
+#projectStatusReportBodyLeftColumn{
+	float:left;
+}
+#projectStatusReportBodyRightColumn{
+	float:right;
+}
+
+#projectStatusReportFooter{
+	clear:both;
+	margin-top:5px;
+	border-top:1px black solid;
+}
+.reportSection{
+	border: 1px black solid;
+	padding:3px;
+	margin:3px;
+}
+.boldLabel{
+	font-weight:bold;
+}
+.boldItalicsLabel{
+	font-weight:bold;
+	font-style:italic;
+}
+#reportLog{
+	text-align:right;
+	font-size:9pt;
+}

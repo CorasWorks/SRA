@@ -1,0 +1,15 @@
+﻿#SiteButtons{
+	text-align:center;
+}
+#AddNewButtons{
+	width:100%;
+	text-align:center;
+	height:35px;
+}
+#SiteManger a:visited, #SiteManger a, .ui-widget-content a{
+	color:#0072c6;
+}
+
+.ui-helper-reset, .pagerProjectManager{
+font-size: 14.66px;
+};

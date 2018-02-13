@@ -1,0 +1,9 @@
+﻿.ui-button{margin-right:3px;padding:3px;}
+.ButtonMainHolder{
+	margin-bottom:10px;
+}
+.ButtonSubHolder{
+	display:inline; 
+	padding:5px;
+	text-align:left;
+}

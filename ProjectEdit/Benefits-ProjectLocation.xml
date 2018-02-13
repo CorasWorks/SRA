@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Location</TableName>
+			<ListTitle>Locations</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><Eq><FieldRef Name="ParentID"/><Value Type="Text">%PSelectValue%</Value></Eq><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></And></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

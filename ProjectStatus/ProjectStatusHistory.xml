@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Items>
+		<OperationDefinition>
+			<RequestType>ProcessBatchData</RequestType>
+			<ListTitle>History</ListTitle>
+			<SiteUrl>%SiteURL%</SiteUrl>
+			<Batch>
+				<![CDATA[
+					<ows:Batch OnError="Return">
+						<Method ID="H1">
+							<SetList>%History%</SetList>
+							<SetVar Name="ID">New</SetVar>
+							<SetVar Name="Cmd">Save</SetVar>
+							<SetVar Name="urn:schemas-microsoft-com:office:office#Title">StatusUpdate</SetVar>
+							<SetVar Name="urn:schemas-microsoft-com:office:office#Data">]]>%StatusUpdate%<![CDATA[</SetVar>
+						</Method>
+					</ows:Batch>]]>
+			</Batch>					
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

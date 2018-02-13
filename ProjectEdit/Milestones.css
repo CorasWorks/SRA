@@ -1,0 +1,79 @@
+﻿.milestonesTable{
+	width:100%;
+	border-collapse:collapse;
+}
+.milestonesTable th, .milestonesTable td{
+	padding:5px 2px;
+}
+.milestonesHeaderRow th{
+	border-bottom:1px silver solid;
+}
+.milestonesHeaderColumn{
+	width:20%;
+	text-align:left;
+}
+
+.milestonesTable tr:nth-child(odd){
+	background-color:#EEE;
+}
+.noCalIcon{
+	display:none;
+}
+.cbHidden{
+	display:none;
+}
+.cbchecked{
+	height:24px;
+	background-image:url('../_layouts/images/cbchecked.gif');
+	background-repeat:no-repeat;
+	cursor:pointer;	
+}
+.cbunchecked{
+	height:24px;
+	background-image:url('../_layouts/images/cbunchecked.gif');
+	background-repeat:no-repeat;
+	cursor:pointer;			
+}
+.cbwarning{
+	height:24px;
+	background-image:url('../_layouts/images/errlg.gif');
+	background-repeat:no-repeat;	
+}
+.noDatePicker{
+	border:none;
+	width:100px;
+	color:black;
+}
+.milestoneDatePicker{
+	width:100px;
+}
+#projectStatusWrapper{
+	width:100%;
+	text-align:right;
+	padding-top:10px;
+	font-size:9pt;
+}
+.finalMilestoneButtonWrapper{
+	padding:10px;
+	text-align:center;
+}
+.ms-rteForeColor-2
+{
+color:red;
+-ms-name:"";
+-ms-color:"Red";
+}
+div.cw-map-title
+{
+	font-family: Segoe UI Light;
+	font-size: 21pt;
+	color: #005293;
+	font-weight:bold;
+}
+span.cw-sra-map-methodology
+{
+	cursor:pointer;	
+}
+#mapMenu{
+	margin-bottom:10px;
+}

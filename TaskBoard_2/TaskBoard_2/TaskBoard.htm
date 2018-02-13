@@ -1,0 +1,199 @@
+﻿<link type="text/css" rel="stylesheet" href="/CWPPM32/Project/TaskBoard.css"/>
+<script type="text/javascript" src="/CWPPM32/Project/TaskBoard.js"></script>
+<!--<script src="jquery.ui.touch-punch.min.js"></script>-->
+
+	<div id="tasksDataView">
+	
+		<div id="taskEdit" title="Update Task" class="ui-state-default ui-corner-all" taskID="" taskArrayIndex="" mode="edit">
+			<div class="edit-Actions">						
+				<img id="closeEdit" class="img-Clickable" title="Cancel without Updating" src="/CWPPM32/Images/delete2.png"/>
+			</div>
+			<div id="edit-Form-NoEdit">
+				<span class="edit-Task" id="edit-Task-Title"></span>
+				<div class="new-Task"><span class="required-Field">*</span><input type="text" class="new-Task" id="new-Task-Title" value="Task title required for save" style="width:85%"/></div>
+			</div>
+				<table class="input-Form">
+					<tr class="edit">
+						<td align="right" style="vertical-align:top">
+							<img id="toggleAssignedToSelector" class="img-Clickable" style="vertical-align:text-bottom" title="Change Task Assignment" src="/CWPPM32/Images/plus-minus.png"/>
+							Assigned To:
+						</td>
+						<td class="edit-Form-Edit" id="edit-Task-AssignedTo">
+								<div id="AssignedToText"></div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div id="AssignedToSelector" class="ui-corner-all"></div>	
+						</td>
+					</tr>
+					<tr class="new">
+						<td align="right" >Priority:</td>
+						<td class="edit-Form-NoEdit">
+							<span class="edit-Task" id="edit-Task-Priority"></span>
+							<select class="new-Task" id="new-Task-Priority" ></select>
+						</td>
+					</tr>
+					<tr class="new-Task">
+						<td align="right" >Start Date:</td>
+						<td >
+							<input class="new-Task" type="text" size="16" id="new-DatePicker-Start" />
+							<input type="hidden" id="alt-Start" />							
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td align="right" >Start Date:</td>
+						<td class="edit-Form-NoEdit">
+							<span class="edit-Task" id="edit-Task-StartDate"></span>						
+						</td>
+					</tr>
+					<tr class="new-Task">
+						<td align="right" >Due Date:</td>
+						<td>
+							<input class="new-Task" type="text" size="16" id="new-DatePicker-Due" />
+							<input type="hidden" id="alt-Due" />							
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td align="right" >Due Date:</td>
+						<td class="edit-Form-NoEdit">
+							<span class="edit-Task" id="edit-Task-DueDate"></span>							
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td align="right" >Actual Start:</td>
+						<td>
+							<input class="edit-Form-Edit" type="text" size="16" id="edit-DatePicker-ActualStart" />
+							<input type="hidden" id="alt-ActualStart" />
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td align="right" >Actual Finish:</td>
+						<td>
+							<input class="edit-Form-Edit" type="text" size="16" id="edit-DatePicker-ActualFinish" />
+							<input type="hidden" id="alt-ActualFinish" />
+						</td>
+					</tr>
+					<tr class="new-Task">
+						<td align="right" >Work:</td>
+						<td class="edit-Form-NoEdit">
+							<span class="edit-Task" id="edit-Task-Work"></span>
+							<input size="5" class="new-Task" type="text" id="new-Task-Work"/>&nbsp;hrs
+						</td>
+					</tr>
+					<tr class="new-Task">
+						<td></td>
+						<td>
+							<div id="new-Slider-Work" style="width:95%; float:right;"></div>
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td align="right" >Actual Work:</td>
+						<td class="edit-Form-Edit" >
+							<input size="5" class="edit-Form-Edit" type="text" id="edit-Task-ActualWork"/>&nbsp;hrs
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td></td>
+						<td>
+							<div id="edit-Slider-ActualWork" style="width:95%; float:right;"></div>
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td align="right" >Percent Complete:</td>
+						<td class="edit-Form-Edit">
+								<input size="5" class="edit-Form-Edit" type="text" id="edit-Task-PercentComplete"/>&nbsp;%
+						</td>
+					</tr>
+					<tr class="edit-Task">
+						<td></td>
+						<td>
+							<div id="edit-Slider-PercentComplete" style="width:95%; float:right;"></div>
+						</td>
+					</tr>
+				</table>
+			<div class="edit-Actions">						
+				<img id="saveEdits" class="img-Clickable" title="Update Task" src="/CWPPM32/Images/disk_blue.png"/>
+			</div>	 
+		</div>
+		<div class="task-Table-Overlay"></div>
+		<table id="tasksTable" class="tasksTable">
+			<thead>
+				<tr id="statusColumnHeaders">
+					<td><div class="ui-state-default ui-corner-all">Task Board</div></td>
+					<!--<td id="project-Site-Users">Project Team</td>-->
+					<!-- Dynamically create task board status columns based on Task List Status field choices.  Columsn created in with same order as field choices. -->
+				</tr>
+			</thead>
+			<tbody>
+			<tr valign="top" id="statusColumnData">
+				<td>
+					<div class="legend-section">Actions</div>
+						<div class="legend-container" id="actions">
+							<img class="img-Clickable" id="newTask" src="/CWPPM32/Images/add2.png" title="Create New Task"/>							
+						</div>
+					<div class="legend-section">Filter: <span class="activeFilter"></span></div>
+					<div class="legend-container" id="filters">	
+						<input type='text' id="searchTasksBox" class="ui-corners-all searchTasks" name="searchBox" value="Enter text to search task titles" />
+						<div id="pastdue-filter" class="legend-items">
+							<img id="All" src="/CWPPM32/Images/flag_white.png" title="Show All Tasks "/>
+							<img id="Past Due" src="/CWPPM32/Images/flag_red.png" title="Show Past Due" />
+						</div>
+						<div id="priority-filter" class="legend-items">
+							<img id="All" src="/CWPPM32/Images/star_white.png" title="Show All Priorities" filterColor="All"/>							
+							<img id="High Priority" src="/CWPPM32/Images/star_red.png" title="Show High Priorities" filterColor="red"/>
+							<img id="Normal Priority" src="/CWPPM32/Images/star_green.png" title="Show Normal Priorities" filterColor="green"/> 
+							<img id="Low Priority" src="/CWPPM32/Images/star_blue.png" title="Show Low Priorities" filterColor="blue"/>
+						</div>
+						<div id="assignment-filter" class="legend-items">
+							<img id="All" src="/CWPPM32/Images/hat_white.png" title="Show All Tasks "/>
+							<img id="Unassigned" src="/CWPPM32/Images/hat_red.png" title="Show Unassigned" />							
+							<img id="My" src="/CWPPM32/Images/hat_green.png" title="Show My Tasks" />
+							<img id="By User" src="/CWPPM32/Images/hat_gray.png" title="Show By Assigned" />
+							<!--<img id="selected-Filter-Overlay" class="filter-checked" src="/CWPPM32/Images/filter_check.png" title="Selected Filter"/>-->
+						</div>
+						<div>
+							<select id="user-select">
+								<option value="Select">Select User</option>
+							</select>							
+						</div>	
+					</div>
+					<div id="display-options">
+						<div class="legend-section">Display Options</div>
+						<div class="legend-container">
+							<div class="legend-items">
+								<input id="toggleProgressBars" type="checkbox" style="vertical-align:text-top"/>&nbsp;<img src="/CWPPM32/Images/prog-bar.png" />&nbsp;Show 
+								Progress Bar<br />
+								<input id="toggleDetails" type="checkbox" style="vertical-align:text-top"/>&nbsp;<img src="/CWPPM32/Images/view.png" />&nbsp;Show 
+								Details<br />
+								<!--<img src="/CWPPM32/Images/hat_green.png" /><input type="checkbox" />My Tasks Only<br />-->
+							</div>
+						</div>
+					</div>
+					<div id="legend">
+						<div class="legend-section">Legend</div>
+						<div class="legend-container">
+							<div class="legend-items">
+								<img src="/CWPPM32/Images/view.png" />&nbsp;View Task 
+								Details<br />
+								<img src="/CWPPM32/Images/data_edit.png" />&nbsp;Edit Task<br />
+								<img src="/CWPPM32/Images/star_red.png" />&nbsp;High 
+								Priority<br />
+								<img src="/CWPPM32/Images/star_green.png" />&nbsp;Normal 
+								Priority<br />
+								<img src="/CWPPM32/Images/star_blue.png" />&nbsp;Low 
+								Priority<br />
+								<img src="/CWPPM32/Images/hat_green.png" />&nbsp;My Tasks<br />
+								<img src="/CWPPM32/Images/hat_gray.png" />&nbsp;Assigned<br />
+								<img src="/CWPPM32/Images/hat_red.png" />&nbsp;Unassigned<br />
+								<img src="/CWPPM32/Images/flag_red.png" />&nbsp;Overdue<br />
+								<!--<img src="/CWPPM32/Images/filter_check.png" />&nbsp;Current Filter<br />-->
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+		</div>

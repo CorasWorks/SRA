@@ -1,0 +1,519 @@
+
+(function($){
+	//declare & set global script variables	 
+	var URL4CAPS = '../_layouts/CorasWorksApps/CorasWorksApplicationService.ashx';
+	var LocalSPWebUrl = 'sites/customdemos/whiteboard';
+	var LocalDateFormat = 'MM-dd-yyyy';
+	var RIGHTNOW = cw.utils.formatDate(new Date().toString(), LocalDateFormat);
+	
+	// CorasWorks Application Service Helper function
+	// Parameters: data - the data object to post into the caps call.
+	// Returns a promise	
+	// NOTE:  This has been depricated, start using caps.js for all CAPS calls!	   
+	function capsCallPromise(data)
+	{
+		return $.ajax(
+		{	url: URL4CAPS, 
+			data: data, 
+			dataType: 'json', 
+			async: true, 
+			cache: false
+		});		
+	} 
+
+	    
+    // SPUser Column Value Model for user selection and display
+    var SPUserModel = function(id, name, selected) {
+    	this.id = ko.observable(id);
+    	this.name = ko.observable(name);
+    	this.selected = ko.observable(selected); //  This is used for user assignment checkboxes
+    };
+    
+    // Priorities Data Model
+    var PriorityModel = function (id, value){
+    	this.id = ko.observable(id);
+    	this.value = ko.observable(value);
+    	//this.icon = ko.observable(icon);
+    };
+		
+	//TaskBoard Status Column Model
+	var statusColumnModel = function(id, title, tasks){
+		this.id = ko.observable(id);
+		this.title = ko.observable(title);
+		//this.tasks = ko.observableArray(tasks);
+	};
+	
+	// TaskBoard Task Item Model
+	var taskItemModel = function(){
+		var self = this;
+
+		// Task item specific data model properties
+		self.id = ko.observable();
+		self.title = ko.observable();
+		self.assignedTo = ko.observableArray([]);
+		self.priority = ko.observable();
+		self.startDate = ko.observable();
+		self.dueDate = ko.observable();
+		self.actualStart = ko.observable();
+		self.actualFinish = ko.observable();
+		self.status = ko.observable();
+		self.work = ko.observable();
+		self.actualWork = ko.observable();
+		self.perCompleteRaw = ko.observable(0.0);
+		self.perComplete = ko.computed({
+			read: function(){
+				return self.perCompleteRaw() * 100
+			},
+			write: function(value){
+				self.perCompleteRaw(value/100);
+			},
+			owner: this
+		});
+		
+		// Task Item View Model Properties
+		self.isNew = ko.observable(true); // Is this a new form?
+		self.isUserEdit = ko.observable(false);
+		self.showDetails = ko.observable(false);
+		self.assignedToToolTip = ko.observable();
+		self.showAssignedTo = ko.observable(false); //Toggle for displaying users on edit and new task forms.
+		self.itemCopyForRevert = ko.observable(); // Hold a temp model of the task item incase we need to restore.
+		self.pastDue = ko.computed(function(){
+			return (cw.utils.formatDate(self.dueDate(), 'Primitive') < new Date() );
+
+		});
+		// Build the icon represented on the task item based on the priority ID
+		self.priorityIcon = ko.computed({
+			read: function(){
+				if (self.priority().id() == "3"){
+					return "/CWPPM32/Images/star_green.png";
+				}
+				else if (self.priority().id() == "2"){
+					return "/CWPPM32/Images/star_blue.png";
+				}
+				else if (self.priority().id() == "1"){
+					return "/CWPPM32/Images/star_red.png";
+				}
+			},
+			deferEvaluation: true
+		});
+		self.assignedToIcon = ko.computed(function(){
+			var icon = '';
+			var isMe = false;
+			if (self.assignedTo() != null && self.assignedTo().length > 0){
+				$.each(self.assignedTo(), function(index, user){
+					if (user.name() == me){ 
+						isMe = true;
+					}
+				});
+				if (isMe) { icon = "/CWPPM32/Images/hat_green.png"; self.assignedToToolTip("My Task"); }
+				else { self.assignedToToolTip("Assigned"); icon = "/CWPPM32/Images/hat_gray.png"; }
+			}
+			else { 
+				self.assignedToToolTip("Unassinged"); 
+				icon = "/CWPPM32/Images/hat_red.png";
+			}
+			return icon;
+		});
+
+		// Restores the original state of the task model and discards any changes made by the user.
+		self.restoreState = function(){
+			if (!self.isNew()){
+				var liveTaskItem = ko.utils.arrayFirst(vm.boardItems(), function(taskItem){
+					return taskItem.id() == self.id();
+				});
+				vm.boardItems.remove(liveTaskItem);
+				vm.boardItems.push(self.itemCopyForRevert());
+				self.itemCopyForRevert("");
+			}
+			vm.selectedTaskItem("");
+		}.bind(vm);
+
+		// Subscript to Status Value so that we can update the percentage complete value when certain 
+		// status values are set to the current task.
+		self.taskStatusSubscription = self.status.subscribe(function(value){
+			if (self.isUserEdit()){
+				if (self.status().title() === 'In Progress'){
+					if (self.perCompleteRaw() < 0.25) { self.perCompleteRaw(0.25); }
+					if (self.perCompleteRaw() > 0.75) { self.perCompleteRaw(0.75); }
+					if (self.assignedTo().length === 0){
+						self.assignedTo.push(new SPUserModel(vm.currentUser.id, vm.currentUser.displayName, true));
+					}
+				}
+				else if (self.status().title() === 'Completed'){
+					self.perCompleteRaw(1);
+				}
+				else if (self.status().title() === 'Not Started'){
+					if (self.perCompleteRaw() > 0.0) { self.perCompleteRaw(0); }
+				}
+			}
+			self.isUserEdit(false);
+		});
+		
+		// This is used for user selection checkbox binding when assigning users to tasks.
+		self.assignedToIds = ko.observableArray();
+		
+		//Task Item Model Events
+		self.showDetailsClick = function(){	self.showDetails(!self.showDetails());	};
+		self.showAssignedToClick = function(){ self.showAssignedTo(!self.showAssignedTo()); }; // Toggles user selection in new and edit form.
+		
+		// When a user is selected from the checkbox list toggle the selected property of the SPUserModel item
+		// that is passed into the function.  We should also remove or add the current item into the 
+		// assignedTo observable array on the task item.
+		self.toggleAssignedToUserClick = function(item){
+			var isNewUser = true;
+			$.each(self.assignedTo(), function(index, thisUser){
+				if (thisUser.id() == item.id()){
+					isNewUser = false;
+					if (thisUser.selected() === true){
+						self.assignedTo.remove(thisUser);
+				 	}
+				 	else {
+						self.assignedTo.push(item);
+					}
+					item.selected(!(item.selected()));
+				}
+			});
+			if (isNewUser) {  self.assignedTo.push(item); item.selected(!(item.selected())); }
+	        return true;
+		};
+		
+		// Task Item Model Functions
+		
+		// Function to build the Batch: Parameter in the caps.js ProcessBatchData Request method.
+		self.itemBatchData = function(){
+			var taskTitle = self.title().replace("&","%26");//replace & with %26
+			var userString = '';
+			$.each(self.assignedTo(), function(index, user){
+				if (index > 0){ userString += ';#;#'; }
+				userString += user.id();
+			});
+			var items = [{ Title: taskTitle, 
+						   AssignedTo: userString, 
+						   Priority: self.priority().value(), 
+						   Status: self.status().title(), 
+						   PercentComplete: self.perCompleteRaw(),
+						   Work: self.work(),
+						   ActualWork: self.actualWork() }];
+			if (self.startDate()) { $.extend(items[0], { StartDate: cw.utils.formatDateForSave(self.startDate()) }); }
+			if (self.dueDate())	{ $.extend(items[0], { DueDate: cw.utils.formatDateForSave(self.dueDate()) }); }
+			if (self.actualStart()) {$.extend(items[0], { ActualStart: cw.utils.formatDateForSave(self.actualStart()) }); }
+			if (self.actualFinish()) {$.extend(items[0], { ActualFinish: cw.utils.formatDateForSave(self.actualFinish()) }); }
+			if (!self.isNew()){ $.extend(items[0], { Id: self.id()}); }
+			
+
+			//var test = { method: self.isNew() ? 'create' : 'update', items: items  };
+			return { method: self.isNew() ? 'create' : 'update', items: items  };
+		};
+		
+		// Function used to format a date into a readable string ie. 11-11-2011
+		// Parameter:  date - the date to be formatted.
+		self.formatDate = function(date){
+			/*if (date){
+				return cw.utils.formatDate(date, LocalDateFormat);
+			}*/
+			return date;
+		}
+		self.formatWorkValue = function(value){
+			try{
+				return Number(value).toFixed(2);
+			}
+			catch(error){ return 0.00; }
+		};
+	};
+	
+	// Our Knockout Board View Model.
+	// This is the main model for the task board application.
+	var BoardViewModel = function(config){
+		var self=this;
+		
+		// View Model properties
+		self.boardColumns = ko.observableArray(config.boardColumns);
+		self.boardItems = ko.observableArray(config.boardItems);
+		self.priorityValues = ko.observableArray(config.priorityValues);
+		self.showProgressBar = ko.observable(false);
+		self.showDetails = ko.observable(false);		
+		self.selectedTaskItem = ko.observable();
+		self.selectedFilter = ko.observable("Show All Tasks");
+		self.textFilter = ko.observable();
+		self.users = ko.observableArray(config.spUsers);
+		self.showFilterByUser = ko.observable(false);
+		self.selectedFilterUser = ko.observable('');
+		self.currentUser = config.currentUser;
+		
+		// View Model Events
+		// Loads the Add/Edit form with a new Task Item and set's it as selected so the form shows.
+		self.addNewTaskClick = function(){
+			var newTask = new taskItemModel();
+			newTask.isUserEdit(true);
+			newTask.showAssignedTo(true);
+			newTask.id(0);
+			newTask.title("New Task");
+			//newTask.priority({'ID': '1','value': 'Low' });
+			self.selectedTaskItem(newTask);
+		};
+		
+		// Save the new task item and call caps.
+		self.saveNewTaskClick = function(task){
+			var newTask = task;
+			caps.ProcessBatchData({site: LocalSPWebUrl, name: 'Tasks', batch: task.itemBatchData()}).then(function(data, textStatus, jqXHR){
+				if (caps.fn.checkNested(data.NewDataSet.ProcessBatchData.Results.Results.Result.Code)){
+					if (data.NewDataSet.ProcessBatchData.Results.Results.Result.Code == "0"){
+						newTask.id(data.NewDataSet.ProcessBatchData.Results.Results.Result.ID[1]);
+						self.boardItems.push(newTask);
+						self.selectedTaskItem("");
+					}
+				}
+			}, function( jqXHR, textStatus, errorThrown){ alert('An error occured while creating new task!'); });
+		};
+		
+		// Set the current selected task so the edit form shows.
+		self.showEditTaskClick = function(task){
+			task.isNew(false);
+			task.isUserEdit(true);
+			self.selectedTaskItem(task);
+			
+			// Temp task setup so we can restore if the user decides to cancel edit.
+			var tempTask = new taskItemModel();
+			tempTask.id(task.id());
+			tempTask.title(task.title());
+			tempTask.priority(task.priority());
+			tempTask.assignedTo(task.assignedTo());
+			tempTask.assignedToIds(task.assignedToIds());
+			tempTask.startDate(task.startDate());
+			tempTask.dueDate(task.dueDate());
+			tempTask.status(task.status());
+			tempTask.perCompleteRaw(task.perCompleteRaw());
+			task.itemCopyForRevert(tempTask);
+		};
+		
+		// Update the task and call caps.
+		self.updateTaskClick = function(task){
+			caps.ProcessBatchData({site: LocalSPWebUrl, name: 'Tasks', batch: task.itemBatchData()}).then(function(data, textStatus, jqXHR){
+				if (caps.fn.checkNested(data.NewDataSet.ProcessBatchData.Results.Results.Result.Code)){
+					if (data.NewDataSet.ProcessBatchData.Results.Results.Result.Code == "0"){
+						self.selectedTaskItem("");
+					}
+				}
+			}, function( jqXHR, textStatus, errorThrown){ alert('An error occured while updating task!'); });
+		};
+
+		// Show the user selection dropdownbox to filter tasks by user.
+		self.filterByUserClick = function(){
+			self.showFilterByUser(!self.showFilterByUser());
+			if (!self.showFilterByUser) { self.selectedFilter("Show All Tasks"); }
+		};
+		
+		// Sets the View Model filter type (this = filter type string).
+		self.filterTasksClick = function(){
+			self.selectedFilter(this);
+		};
+		
+		// Use this subscription to the View Model textFilter property.  If the value changes
+		// set the View Model selectedFilter to filter the tiles by the text.
+		self.filterSubscription = self.textFilter.subscribe(function(value){
+			self.selectedFilter("by Task Tiles");
+			if (self.textFilter() == null){
+				self.selectedFilter("Show All Tasks");
+			}	
+		});
+		
+		// Use this subscription to the View Model FilterByUser property.  If the value changes
+		// set the View Model selectedFilter to filter the tiles by the user.
+		self.filterByUserSubscription = self.selectedFilterUser.subscribe(function(){
+			self.selectedFilter("by User Tasks");
+			if (self.selectedFilterUser() == null){
+				self.selectedFilter("Show All Tasks");
+
+			}
+		});
+		
+		
+		// Update task list when task item is moved to a new status column.
+		self.taskMoved = function(arg){
+			var id = this.attributes.rawid.nodeValue;
+			if (id != arg.item.status().id())
+			{
+				arg.item.isUserEdit(true);
+				arg.item.status(ko.utils.arrayFirst(vm.boardColumns(), function(statusItem){ return statusItem.id() === id }));
+				arg.item.isNew(false);
+				caps.ProcessBatchData({site: LocalSPWebUrl, name: 'Tasks', batch: arg.item.itemBatchData()});
+			}
+		};
+		// Save the toggled priority value to the sharepoint list.
+		self.taskPriorityStarClick = function(task){
+			task.isNew(false);  // Set the isNew flag so it gets treated as an update.
+			//var priorityVal = parseInt(this.priority().ID);
+			var priorityIdVal = parseInt(task.priority().id());
+			// Increment the ID value until it gets to 3 then reset back around to 1
+			if (priorityIdVal < 3) { priorityIdVal++; } else { priorityIdVal = 1; }
+
+			task.priority(ko.utils.arrayFirst(vm.priorityValues(), function(item){
+				return priorityIdVal == item.id();
+			}));
+
+			caps.ProcessBatchData({site: LocalSPWebUrl, name: 'Tasks', batch: task.itemBatchData()});
+		};
+		
+		// View Model Functions
+		// Apply the current filter to the current task.
+		// Parameters: task - the current task item model.
+		//			   filter - the current filter type string value.
+		self.filterMe = function(task, filter){
+				return ko.computed(function(){
+					//debugger;
+					var returnVal = false;
+					var filterVal = filter().toString();
+					switch (filterVal){
+						case "Show All Tasks":
+						case "Show All Priorities":
+							returnVal = true;	
+							break;	
+						case "Show High Priorities":
+							if (task.priority().value() === "(1) High")
+								returnVal = true;
+								break;
+						case "Show Low Priorities":
+							if (task.priority().value() === "(3) Low")
+								returnVal = true;
+							break;
+						case "Show Normal Priorities":
+							if (task.priority().value() === "(2) Normal")
+								returnVal = true;
+							break;
+						case "Show All Unassigned":
+							if (!task.assignedTo() || task.assignedTo().length == 0)
+								returnVal = true;
+							break;
+						case "by User Tasks":
+							if (task.assignedTo() != null && task.assignedTo().length > 0 && self.selectedFilterUser){
+								$.each(task.assignedTo(), function(index, user){
+									if (user.name() == self.selectedFilterUser().name()){ returnVal = true; }
+								});
+							}
+							break;
+						case "Show My Tasks":
+							if (task.assignedTo() != null && task.assignedTo().length > 0){
+								$.each(task.assignedTo(), function(index, user){
+									if (user.name() == config.currentUser.displayName){ returnVal = true; }
+								});
+							}
+							break;
+						case "Show Past Due":
+							if (task.pastDue())
+								returnVal = true;
+							break;
+						case "by Task Tiles":
+							if (task.title().indexOf(self.textFilter()) != -1){
+								returnVal = true;
+								break;
+							} 
+						default:
+							returnVal = false;
+							break;
+					}
+					return returnVal;
+			});
+		};
+
+		// Added a tasksByStatus filter function to more dynamically reflect the position of the task based
+		// on the status.  Originally I was using a tasks collection on the status Column Model but this proved
+		// difficult to work with and maintain.
+		self.tasksByStatus = function (statusCol){
+			var col = statusCol;
+			return ko.utils.arrayFilter(self.boardItems(), function(item) {
+	            return item.status().id() == col.id();
+	        });
+		};
+	};
+	// Declare View Model variable for later use.
+	var vm = null;
+	var me;
+
+ 
+	
+	//Load Data from Server and bind knockout view model
+	var boardConfig = { boardColumns: [], boardItems: [], priorityValues: [], cwVariables: [], currentUser:{}, username: "", spUsers: [] };
+	var boardData = {RequestType: 'BatchRequest', ConfigFileLocation: '%SiteURL%/board/batchrequest.xml', XsltLocation: '%SiteURL%/board/batchrequest.xslt', OutputType: 'json'};
+	
+
+	var capsUserData = capsCallPromise({ RequestType: 'GetSiteUsers', OutputType: 'json'});
+	var capsCwVariables = capsCallPromise({ RequestType: 'CheckVariables', OutputType: 'json'});
+	var capsTaskBoardComponents = capsCallPromise({RequestType: 'GetListInfo', ListTitle: 'Tasks', XsltLocation: '[PPM v3.2 Common]/CWPPM32/Project/TaskBoardColumns.xslt', OutputType: 'json'});
+	var capsTaskBoardItems = capsCallPromise({RequestType: 'BatchRequest', ConfigFileLocation: '[PPM v3.2 Common]/CWPPM32/Project/TaskBoardCDB.xml', XsltLocation: '[PPM v3.2 Common]/CWPPM32/Project/TaskBoard.xslt', OutputType: 'json'});
+
+
+	$.when(capsUserData, capsTaskBoardComponents, capsTaskBoardItems, capsCwVariables).then(function(users, boardComponents, boardItems, variables){
+		var cwvars = variables[0].NewDataSet.CheckVariables.CWVariable;
+		$.each(cwvars, function(index, variable){
+			if (variable.name === 'CWUID') {$.extend(boardConfig.currentUser, {id: variable.value});}
+			if (variable.name === 'Me') {$.extend(boardConfig.currentUser, {displayName: variable.value});}
+			if (variable.name === 'MeLoginName') {$.extend(boardConfig.currentUser, {loginName: variable.value});}
+			if (variable.name === 'MeEmail') {$.extend(boardConfig.currentUser, {email: variable.value});}
+		});
+		//boardConfig.currentUser = { id: cwvars.CWUID, displayName: cwvars.Me, loginName: cwvars.MeLoginName, email: cwvars.MeEmail };
+		boardConfig.username = boardConfig.currentUser.displayName;
+		me = boardConfig.currentUser.displayName;
+
+		// Build collection of sharepoint users for user selection of tasks.
+		$.each(users[0].NewDataSet.GetSiteUsers.SPUser, function( index, spuser ) {
+			boardConfig.spUsers.push(new SPUserModel(spuser.ID.value, spuser.Name.value, false));
+		});
+
+		// Build Priorities collection for data-binding 
+		$.each(boardComponents[0].NewDataSet.Priority.Field.CHOICES.CHOICE, function(index, priority){
+			boardConfig.priorityValues.push(new PriorityModel(index + 1, priority));
+		});
+
+		// Setup the status columns for the board View Model.
+		$.each(boardComponents[0].NewDataSet.Status.Field.MAPPINGS.MAPPING, function( index, column ) {
+			boardConfig.boardColumns.push(new statusColumnModel(column.Value, column.value));
+		});
+
+		//var tasks = [];  //temporary initializer for the observable array of tasks
+		// Loop through and create all of the task items so we can add the status specific 
+		// tasks to the correct status collection.  Note:  This might be done different if
+		// the data is collected from the server already with this relationship.
+		$.each(boardItems[0].NewDataSet.Tasks["z:row"], function( idx, item ) {
+			var newTask = new taskItemModel();
+			var SD="", DD="", ASD="", AFD="";
+			if (item.ows_StartDate){ SD = cw.utils.formatDate(item.ows_StartDate, LocalDateFormat); }
+			if (item.ows_DueDate){ DD = cw.utils.formatDate(item.ows_DueDate, LocalDateFormat); }
+			if (item.ows_ActualStart) { ASD = cw.utils.formatDate(item.ows_ActualStart, LocalDateFormat); }
+			if (item.ows_ActualFinish) { AFD = cw.utils.formatDate(item.ows_ActualFinish, LocalDateFormat); }
+			
+			var assignedToTemp = [];
+			var users = cw.utils.getSPUserArray(item.ows_AssignedTo);
+			$.each(users.users, function(index, user){
+				assignedToTemp.push(new SPUserModel(user.id, user.val, user.selected));
+			});
+
+			var priority = ko.utils.arrayFirst(boardConfig.priorityValues, function(pitem) {
+    			return item.ows_Priority === pitem.value();
+			});
+
+
+			newTask.id(item.ows_ID);
+			newTask.title(item.ows_Title);
+			newTask.priority(priority);
+			newTask.assignedTo(assignedToTemp);
+			newTask.assignedToIds(users.ids);
+			newTask.startDate(SD);
+			newTask.dueDate(DD);
+			newTask.actualStart(ASD);
+			newTask.actualFinish(AFD);
+			newTask.work(item.ows_Work);
+			newTask.actualWork(item.ows_ActualWork)
+			newTask.status(ko.utils.arrayFirst(boardConfig.boardColumns, function(col){ return col.title() === item.ows_Status; }));
+			newTask.perCompleteRaw(parseFloat(item.ows_PercentComplete));
+			boardConfig.boardItems.push(newTask);	
+		});
+
+		//console.log(boardConfig);
+		vm = new BoardViewModel(boardConfig);	
+		ko.applyBindings(vm);
+		$("#loaderDiv").hide();
+		$("#tasksTable").show();
+	});
+})(jQuery);
+
+

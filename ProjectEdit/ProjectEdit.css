@@ -1,0 +1,141 @@
+﻿body {margin:5px;padding:5px;font-size:smaller;overflow:auto}
+#CWActionTitle {font-size:larger;font-weight:bold}
+#CWActionCategory {font-weight:bold}
+#CWActionDescription{color:gray}
+.FormButtons {float:right}
+#TabbedForm {margin:2px}
+#HowTab li {padding: 3px 0}
+label {padding:5px;display:inline-block;width:100px}
+/*
+input, textarea, select {padding:5px;margin:8px}
+*/
+input{
+
+	padding:2px 1px 2px 1px;
+}
+.CWInput, .CWChoice {min-width:450px}
+
+textarea {width:250px}
+.CWRequired {color:red}
+.CWFormDescription{color:gray;font-size:smaller;margin-left:120px;margin-top:-5px;position:absolute}
+#HiddenParameters{display:none}
+img.ui-datepicker-trigger {
+	padding-bottom:5px;
+	vertical-align:middle;
+	cursor:pointer
+}
+#ActionForm .cke_chrome {margin-bottom:5px}
+#ProApproval{
+	width:50%;
+}
+#ProApproval td{
+	text-align:center;
+	width:25%;
+}
+#ProApproval th{
+	text-align:left;
+	width:50%;
+}
+#ProResources{
+	width:50%;
+}
+#ProResources td{
+	text-align:left;
+	width:25%;
+}
+#ProResources th{
+	text-align:left;
+	width:50%;
+}
+#Resources input[type="text"] {
+	width:100%
+}
+#Benefits input[type="text"] {
+
+	width:100%
+}
+.textareaChars{
+	text-align:right;
+	font-size:9pt;
+}
+
+#FinanceTip{
+	width:100%;
+	text-align:left;
+	font-weight:bold;
+	background-color:#EEE;
+	padding:5px;
+	border-radius:3px;
+	clear:both;
+}
+.FinanceNumber{
+	text-align:right;
+}
+#ResourcesData input, {
+	text-align:right;
+}
+.CW-img-button{
+ padding:5px; 
+}
+.CostAdd{
+	/*
+	float:right;
+	*/
+	padding:10px;	
+}
+td.ComfirmButton{
+	vertical-align:middle;
+	padding: 5px;
+	text-align:center;
+}
+#BenefitsMonthBody select{
+	width:100%;
+}
+#BenefitsYearBody select{
+	width:100%;
+}
+#ProCostsYearBody select{
+	width:100%;
+}
+#ProCostsMonthBody select{
+	width:100%;
+}
+
+#ApprovalsAdd input,#ApprovalsEdit input, #ApprovalsAdd selecet,#ApprovalsEdit selecet{
+	width:100%;
+	
+}
+#ApprovalsAdd label, #ApprovalsEdit label{
+	width:100%;
+}
+.peoplePickerApprover{
+
+}
+.FullWidth{
+	width: 100%;
+	float:right;
+}
+.MainCancel{
+	float:right;
+	margin-bottom:10px;
+}
+
+/*chosen*/
+.chosen-container .chosen-results {
+  max-height: 150px !important;
+}
+
+/*
+.chosen-container {margin:8px}
+.chosen-container, .chosen-drop, .chosen-drop .chosen-search, .chosen-drop .chosen-search input {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.chosen-container {min-width:460px !important}
+.chosen-container .chosen-results li em {
+    background: none repeat scroll 0 0 #F3F782;
+    font-style: normal;
+    font-weight: bold;
+}
+*/

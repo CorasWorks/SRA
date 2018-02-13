@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name='Role'/><Value Type='Text'>Team Leader</Value></Eq></Where></Query>]]></CAML>
+			<SiteUrl>%ProURL%</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl></SiteUrl>
+			<ListTitle>Projects</ListTitle>
+			<TableName>Project</TableName>
+			<CAML><![CDATA[
+				<Query>
+					<Where>
+						<Eq><FieldRef Name="ID"/><Value Type="Text">%ProID%</Value></Eq>
+					</Where>
+				</Query>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly><DateInUtc>TRUE</DateInUtc></QueryOptions>
+				]]>
+			</CAML>
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

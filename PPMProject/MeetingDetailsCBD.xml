@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<OperationDefinitionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Meetings</TableName>
+			<ListTitle>Meetings</ListTitle>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>MeetingActionItems</TableName>
+			<ListTitle>Meeting Action Items</ListTitle>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>MeetingDocuments</TableName>
+			<ListTitle>Meeting Documents</ListTitle>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

@@ -1,0 +1,39 @@
+﻿
+#CWActionTitle {font-size:larger;font-weight:bold}
+#CWActionCategory {font-weight:bold}
+#CWActionDescription{color:gray}
+.FormButtons {float:right; margin-top:20px;}
+#TabbedForm {margin:2px}
+#HowTab li {padding: 3px 0}
+#DynamicForm table tr td label {padding:5px;display:inline-block;width:50px;}
+#DynamicForm table tr td{
+	vertical-align:top;
+}
+/*
+input, textarea, select {padding:5px;margin:8px}
+.chosen-container {margin:8px}
+*/
+.CWInput, .CWChoice {min-width:450px}
+
+input[type="text"] {width:250px}
+textarea {width:250px}
+.CWRequired {color:red}
+.CWFormDescription{color:gray;font-size:smaller;margin-left:120px;margin-top:-5px;position:absolute}
+#HiddenParameters{display:none}
+.chosen-container, .chosen-drop, .chosen-drop .chosen-search, .chosen-drop .chosen-search input {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.chosen-container {min-width:460px !important}
+.chosen-container .chosen-results li em {
+    background: none repeat scroll 0 0 #F3F782;
+    font-style: normal;
+    font-weight: bold;
+}
+img.ui-datepicker-trigger {
+	padding-bottom:5px;
+	vertical-align:middle;
+	cursor:pointer
+}
+#ActionForm .cke_chrome {margin-bottom:5px}

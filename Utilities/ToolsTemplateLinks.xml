@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Tools</ListTitle>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="TemplateLocation"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+	</Items>	
+</OperationDefinitionCollection>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<!--
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Divisions</TableName>
+			<ListTitle>Divisions</ListTitle>
+			<CAML><![CDATA[
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Regions</TableName>
+			<ListTitle>Divisions-Regions</ListTitle>
+			<CAML><![CDATA[
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		-->
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Locations</TableName>
+			<ListTitle>Locations</ListTitle>
+			<CAML><![CDATA[
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="URL"/>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="UserGroupID"/>
+					<FieldRef Name="ParentID"/>
+					<FieldRef Name="Division"/>
+					<FieldRef Name="DivisionRegion"/>
+					<FieldRef Name="Active"/>
+				</ViewFields>			
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>
+			<CAML><![CDATA[
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="URL"/>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="UserGroupID"/>
+					<FieldRef Name="ParentID"/>
+					<FieldRef Name="Division"/>
+					<FieldRef Name="Region"/>
+					<FieldRef Name="Location"/>
+					<FieldRef Name="ProjectStatus"/>	
+				</ViewFields>			
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

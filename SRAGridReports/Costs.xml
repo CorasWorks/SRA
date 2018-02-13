@@ -1,0 +1,24 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl>%ProjectURL%</SiteUrl>
+			<ListTitle>Project Costs</ListTitle>
+			<TableName>Costs</TableName>
+			<CAML><![CDATA[
+				%CAPSCAML%
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="Month"/>
+					<FieldRef Name="ExpenseTarget"/>
+					<FieldRef Name="ExpenseActual"/>
+					<FieldRef Name="CapitalTarget"/>
+					<FieldRef Name="CapitalActual"/>
+				</ViewFields>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

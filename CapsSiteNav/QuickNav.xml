@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Divisions</ListTitle>
+			<TableName>Divisions</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML><![CDATA[
+				<Query>
+					<OrderBy><FieldRef Name="Title"/></OrderBy>
+				</Query>
+				<ViewFields><FieldRef Name="Title"/><FieldRef Name="URL"/></ViewFields>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly></QueryOptions>
+			]]></CAML>			
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Divisions-Regions</ListTitle>
+			<TableName>Regions</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML><![CDATA[
+				<Query>
+					<OrderBy><FieldRef Name="Title"/></OrderBy>
+				</Query>
+				<ViewFields><FieldRef Name="RegionSortValue"/><FieldRef Name="URL"/><FieldRef Name="ParentID"/></ViewFields>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly></QueryOptions>
+			]]></CAML>			
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Locations</ListTitle>
+			<TableName>Locations</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML><![CDATA[
+				<Query>
+					<OrderBy><FieldRef Name="Title"/></OrderBy>
+				</Query>
+				<ViewFields><FieldRef Name="Title"/><FieldRef Name="URL"/><FieldRef Name="ParentID"/></ViewFields>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly></QueryOptions>
+			]]></CAML>			
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Projects</ListTitle>
+			<TableName>Projects</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<!--
+			<CAML><![CDATA[
+				<Query>				
+					<OrderBy><FieldRef Name="Title"/></OrderBy>
+				</Query>
+				<ViewFields><FieldRef Name="Title"/><FieldRef Name="URL"/><FieldRef Name="ParentID"/></ViewFields>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly></QueryOptions>
+			]]></CAML>
+			-->
+			
+			<CAML><![CDATA[
+				<Query>
+					<Where>
+						<Or>
+						<Eq><FieldRef Name="TeamMembers" LookupId="TRUE"/><Value Type="Lookup">%CWUID%</Value></Eq>
+						<Eq><FieldRef Name="TeamLeader" LookupId="TRUE"/><Value Type="Lookup">%CWUID%</Value></Eq>
+						</Or>
+					</Where>				
+					<OrderBy><FieldRef Name="Title"/></OrderBy>
+				</Query>
+				<ViewFields><FieldRef Name="Title"/><FieldRef Name="URL"/><FieldRef Name="ParentID"/></ViewFields>
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly></QueryOptions>
+			]]></CAML>
+						
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

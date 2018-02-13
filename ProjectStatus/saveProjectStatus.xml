@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>ProcessBatchData</RequestType>
+			<ListTitle>Projects</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<Batch>
+				<![CDATA[
+					<ows:Batch OnError="Return">
+						<Method ID="A1">%KeyStatusText%</Method>
+					</ows:Batch>]]>
+			</Batch>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>ProcessBatchData</RequestType>
+			<ListTitle>ProjectKPIs</ListTitle>
+			<SiteUrl>%SiteURL%</SiteUrl>
+			<Batch>
+				<![CDATA[
+					<ows:Batch OnError="Return">%KPIUpdate%</ows:Batch>]]>
+			</Batch>
+		</OperationDefinition>	</Items>
+</OperationDefinitionCollection>

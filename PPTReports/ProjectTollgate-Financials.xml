@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Milestones</TableName>
+			<ListTitle>Milestones</ListTitle>
+			<CAML><![CDATA[<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>%ProjectURL%</SiteUrl>
+		</OperationDefinition>	
+	</Items>
+</OperationDefinitionCollection>

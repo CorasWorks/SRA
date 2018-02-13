@@ -1,0 +1,121 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta name="GENERATOR" content="Microsoft SharePoint" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=10"/>
+	
+<meta name="WebPartPageExpansion" content="full" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" language="JavaScript" src="http://corning.corasworks.net/sites/sra/Resources/PPMFiles/Project/AnyGantt.js"></script>
+		<title>Simple Gantt Chart</title>
+        <style type="text/css">
+        html, body { padding: 10; margin: 10; }
+        </style>
+	</head>
+	
+	<body>
+		<h1>AnyGantt 4.3.0 Beta</h1>
+		<h2>Task Groups Border</h2>
+		<p>Project chart</p>
+		<textarea rows="11" cols="50"><project_chart>
+  <groups>
+    <background/>
+    <group>
+      <background/>
+      <task id=''/>
+      <task id=''/>
+      <task id=''/>
+    </group>
+  </groups>
+</project_chart></textarea>
+		<p>Resource chart</p>
+		<textarea rows="11" cols="50"><resource_project>
+<groups>
+    <background/>
+    <group>
+      <background/>
+      <period id=''/>
+      <period id=''/>
+      <period id=''/>
+    </group>
+  </groups>
+</resource_project></textarea>
+
+		<h2>Splitter</h2>
+		<p>Tasks</p>
+		<textarea rows="7" cols="50"><task>
+	<style>
+    	<splitter color="Red" thickness="3"/>
+ 	</style>
+</task></textarea>
+
+		<p>Resources</p>
+		<textarea rows="7" cols="50"><resource>
+	<style>
+    	<splitter color="Red" thickness="3"/>
+ 	</style>
+</resource></textarea>
+
+		<h2>Row height</h2>
+		<p>Tasks</p>
+		<textarea rows="4" cols="50"><task_style>
+	<row_datagrid height="20" />
+</task_style></textarea>
+
+		<p>Resources</p>
+		<textarea rows="4" cols="50"><resource_style>
+	<row_datagrid height="20" />
+</resource_style></textarea>
+
+  		<h2>Quarters to start from a variable month</h2>
+		<textarea rows="4" cols="50"><timeline> 
+    <calendar year_starts="9"/>
+</timeline> </textarea>  		
+
+		<h2>Connectors for periods</h2>
+		<textarea rows="8" cols="50"><resource_chart>
+	<connectors>
+    	<connector type="endstart" from="1" to="2" />
+     	<connector type="endend" from="2" to="4" />
+    </connectors>    
+</resource_chart></textarea>  
+
+
+		<h2>Project chart sample (beta)</h2>
+		<div id="chartDiv1"></div>
+		<input type="Button" value="GetXML()" onclick="alert(chartSample1.getDataXML())"/>
+
+		<h2>Resource chart sample (beta)</h2>
+		<div id="chartDiv2"></div>
+		<input type="Button" value="GetXML()" onclick="alert(chartSample2.getDataXML())"/>
+
+		<h2>Project chart sample (AnyGantt_4_4.1.0)</h2>
+		<div id="chartDiv3"></div>
+		<input type="Button" value="GetXML()" onclick="alert(chartSample3.getDataXML())"/>
+
+		<h2>Resource chart sample (AnyGantt_4_4.1.0)</h2>
+		<div id="chartDiv4"></div>
+		<input type="Button" value="GetXML()" onclick="alert(chartSample4.getDataXML())"/>
+
+		<script type="text/javascript" language="JavaScript">
+			AnyGantt.width = '800';
+			AnyGantt.height = '300';
+
+			var chartSample1 = new AnyGantt('http://corning.corasworks.net/sites/sra/Resources/PPMFiles/Project/AnyGantt.swf');
+			chartSample1.setXMLFile('http://corning.corasworks.net/sites/sra/div31/Reg69/Loc51/Pro21/_layouts/CorasWorksApps/CorasWorksApplicationService.ashx?RequestType=GetListItems&ListTitle=Tasks&TableName=Tasks&XsltLocation=[SRA Root]/Resources/PPMFiles/Project/ScheduleTrackingChart.xslt');
+			chartSample1.write('chartDiv1');
+
+			var chartSample2 = new AnyGantt('http://corning.corasworks.net/sites/sra/Resources/PPMFiles/Project/AnyGantt.swf');
+			chartSample2.setXMLFile('anygantt2.xml');
+			chartSample2.write('chartDiv2');			
+
+			var chartSample3 = new AnyGantt('../_LAYOUTS/CorasWorksDIT/GanttDisplayAdapter/AnyGantt_4_4.1.0.swf');
+			chartSample3.setXMLFile('anygantt1.xml');
+			chartSample3.write('chartDiv3');
+
+			var chartSample4 = new AnyGantt('../_LAYOUTS/CorasWorksDIT/GanttDisplayAdapter/AnyGantt_4_4.1.0.swf');
+			chartSample4.setXMLFile('anygantt2.xml');
+			chartSample4.write('chartDiv4');			
+		</script>		
+	</body>
+</html>

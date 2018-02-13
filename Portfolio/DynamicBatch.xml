@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Tasks</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<SiteUrl>http://2010test.corasworks.net/sites/ppmv32/project,http://2010test.corasworks.net/sites/ppmv32/project/p1</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>SiteDirectory</TableName>
+			<ListTitle>Site Directory</ListTitle>
+			<SiteUrl>[PPM v3.2]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>KPILabels</TableName>
+			<ListTitle>KPI Labels</ListTitle>
+			<SiteUrl>[PPM v3.2]</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

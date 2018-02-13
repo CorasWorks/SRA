@@ -1,0 +1,27 @@
+﻿<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Team Members</ListTitle>
+			<TableName>TeamMembers</TableName>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<OrderBy>
+							<FieldRef Name="SharePointUser"/>
+						</OrderBy>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="SharePointUser"/>
+						<FieldRef Name="Role"/>
+						<FieldRef Name="Editor0"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

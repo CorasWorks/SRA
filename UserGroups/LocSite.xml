@@ -1,0 +1,32 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Locations</ListTitle>
+			<TableName>Locations</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<Where>
+							<Eq>
+								<FieldRef Name="ID"/>
+								<Value Type="Counter">%ParentID%</Value>
+							</Eq>
+						</Where>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="ParentID"/>
+						<FieldRef Name="UserGroupID"/>
+						<FieldRef Name="UserGroupName"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+	</Items>	
+</OperationDefinitionCollection>

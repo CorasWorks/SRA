@@ -1,0 +1,162 @@
+﻿.sraBackground, .sraToolbar{
+	background: #e6e6e6 url(_layouts/AppDesigner/Content-Cache/Apps/ApplicationDesigner/css/1.8.10/themes/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png) 50% 50% repeat-x;
+}
+.projectStatusHeader{
+	margin-bottom:10px;
+}
+.projectStatusWrapper{
+	font-family:Arial, Helvetica, sans-serif;
+}
+.sraToolbar{
+	border-radius:5px;
+	margin:3px 0px;
+	padding:3px;
+	border:1px #999 solid;
+  	/*background-color:#EEE;*/
+  	min-height:50px;
+	
+}
+.projectStatusAvailableKPIsWrapper {
+	display:none;
+	text-align:right;
+}
+.closeAddKPIs{
+	cursor:pointer;
+}
+.closeAddKPIs:hover{
+	color:red;
+}
+
+.projectStatusKPIsWrapper, .projectStatusAvailableKPIsWrapper {
+	overflow:auto;
+}
+.projectAvailableKPI{
+	cursor:pointer;
+}
+.projectKPI, .projectAvailableKPI{
+	border-top:1px #ccc solid;
+	border-left:1px #ccc solid;
+	border-bottom:1px #666 solid;
+	border-right:1px #666 solid;
+	
+	padding:5px;
+	margin:5px;
+	display:inline-block;	
+	border-radius:3px;
+	min-width:100px;
+	background-color:white;
+	text-align:left;
+}
+.projectStatusKPILevel{
+	cursor:pointer;
+}
+.projectKPI img{
+	padding-right:5px;
+	vertical-align:middle;
+}
+.projectKPI span{
+	font-weight:bold;
+}
+.removeKPI{
+	text-align:center;
+	color:silver;
+	cursor:pointer;
+	border:1px silver solid;
+	padding:3px;
+	height:10px;
+	width:10px;
+}
+.removeKPI:hover{
+	color:red;
+	border:1px red solid;
+}
+.projectStatusNarrativesWrapper{
+	border:1px #666 solid;
+	padding:5px;
+	border-radius:5px;
+}
+.projectStatusNarrativeWrapper{
+	border:1px #666 solid;
+	padding:5px;
+	border-radius:5px;
+	margin:3px 0px;
+	min-height:200px;}
+.projectStatusNarrativeLabel{
+	border-bottom:1px #999 solid;
+	font-weight:bold;
+	padding:3px;
+	background-color:#EEE;
+}
+.projectStatusNarrativeInput{
+	min-height:50px;
+	cursor:text;
+	padding:5px;
+	margin:5px;
+	width:95%;
+	min-height:195px
+}
+.projectStatusNarrativeInput:focus{
+	background-color:#EFEFFF;
+}
+.startText{
+	font-color:#999;
+	font-style:italic;
+}
+.projectStatusFooter{
+	margin-top:10px;
+}
+.StatusUpdateHistories{
+	border-radius:5px;
+	border:1px #999 solid;
+	margin-top:20px;
+	padding:10px;
+}
+.StatusUpdateHistory{
+	border-radius:5px;
+	border:1px #999 solid;
+	padding:3px;
+	margin:2px;
+}
+.whoWhen{
+	text-align:right;
+	width:100%;
+	color:navy;
+}
+.historyKPIs{
+	mid-height:60px;
+}
+.historyKPICategory{
+	font-size:8pt
+}
+.historyKPI{
+	border:1px gray solid;
+	
+	padding:5px;
+	margin:5px;
+	display:inline-block;	
+	border-radius:3px;
+	background-color:white;
+	text-align:left;
+}
+.historyKPI img{
+	width:12px;
+	height:12px;
+}
+.keyItem{
+	font-size:9pt;
+	margin:3px;
+	padding:2px;
+}
+.historylabel{
+	font-weight:bold;
+	text-align:right;
+	min-width:150px;
+}
+.textareaChars{
+	text-align:right;
+	font-size:9pt;
+}
+#ProjectLastUpdate{
+	text-align:center;
+	font-size:10pt;
+}

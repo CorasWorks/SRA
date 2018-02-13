@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="URL"/><Value Type="Text">%ISiteURL%</Value></Eq></Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions><RowLimit>1</RowLimit>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+			<Neq><FieldRef Name="Role"/><Value Type="Text">SiteLevelApprover</Value></Neq>
+			</Where></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>	
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Division</TableName>
+			<ListTitle>Divisions</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>ProjectRoles</TableName>
+			<ListTitle>ProjectRoles</ListTitle>
+			<CAML><![CDATA[<Query><Where><And><Eq><FieldRef Name="Active"/>
+			<Value Type="Bool">1</Value></Eq><Eq><FieldRef Name="ShowAtProject"/><Value Type="Bool">1</Value></Eq></And>
+			</Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>	
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>											
+	</Items>
+</OperationDefinitionCollection>

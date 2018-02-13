@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>ProjectStatuses</TableName>
+			<ListTitle>ProjectStatuses</ListTitle>
+			<CAML><![CDATA[
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>			
+			<CAML><![CDATA[
+					<Query><Where>
+						<Contains><FieldRef Name='URL' /><Value Type='Text'>%ISiteURL%/</Value></Contains>			
+					</Where></Query>			
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="URL"/>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="UserGroupID"/>
+					<FieldRef Name="ParentID"/>
+					<FieldRef Name="Division"/>
+					<FieldRef Name="Region"/>
+					<FieldRef Name="Location"/>
+					<FieldRef Name="ProjectStatus"/>
+					<FieldRef Name="ProjectStatusID"/>	
+				</ViewFields>			
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

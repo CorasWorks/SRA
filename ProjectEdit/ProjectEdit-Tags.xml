@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="URL"/><Value Type="Text">%ISiteURL%</Value></Eq></Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions><RowLimit>1</RowLimit>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Tags</TableName>
+			<ListTitle>Default Tags</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>									
+	</Items>
+</OperationDefinitionCollection>

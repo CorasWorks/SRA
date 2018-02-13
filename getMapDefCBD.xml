@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Maps</ListTitle>
+			<TableName>Maps</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<Where>
+							<Eq>
+								<FieldRef Name="ID"/>
+								<Value Type="Counter">%MapID%</Value>
+							</Eq>
+						</Where>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Description"/>
+						<FieldRef Name="HelpMessage"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Stages</ListTitle>
+			<TableName>Stages</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Initial"/>
+						<FieldRef Name="Purpose"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Tools</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<TableName>Tools</TableName>
+			<CAML>
+				<![CDATA[
+					<!--<Query>
+						<Where>
+							<Eq>
+								<FieldRef Name="Active"/>
+								<Value Type="Bool">1</Value>
+							</Eq>
+						</Where>
+					</Query>-->
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Purpose"/>
+						<FieldRef Name="HelpMessage"/>
+						<FieldRef Name="TemplateLocation"/>
+						<FieldRef Name="HelpFileLocation"/>
+						<FieldRef Name="Stages"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>MapStages</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<TableName>MapStages</TableName>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<Where>
+							<Eq>
+								<FieldRef Name="MapID"/>
+								<Value Type="Text">%MapID%</Value>
+							</Eq>
+						</Where>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Map"/>
+						<FieldRef Name="Stage"/>
+						<FieldRef Name="MapID"/>
+						<FieldRef Name="StageID"/>						
+						<FieldRef Name="StagePosition"/>						
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>MapStageTools</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<TableName>MapStageTools</TableName>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<Where>
+							<Eq>
+								<FieldRef Name="MapID"/>
+								<Value Type="Text">%MapID%</Value>
+							</Eq>
+						</Where>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Tool"/>
+						<FieldRef Name="Stage"/>
+						<FieldRef Name="MapName"/>
+						<FieldRef Name="ToolID"/>
+						<FieldRef Name="MapStageID"/>						
+						<FieldRef Name="ToolPosition"/>						
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Map</ListTitle>
+			<TableName>ProjectMap</TableName>
+			<SiteUrl>%SiteURL%</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="MapStageID"/>
+						<FieldRef Name="ToolPosition"/>
+						<FieldRef Name="ToolID"/>
+						<FieldRef Name="Status"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>ProjectEditor</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+						<And>
+							<Or>
+							<Eq><FieldRef Name="Role"/><Value Type="Text">Team Leader</Value></Eq>
+							<Eq><FieldRef Name="Editor0"/><Value Type="Bool">1</Value></Eq>
+							</Or>
+							<Eq><FieldRef Name="SharePointUser"/><Value Type="User">[me]</Value></Eq>
+						</And>
+						</Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>															
+	</Items>
+</OperationDefinitionCollection>

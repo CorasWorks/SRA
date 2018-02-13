@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>ProcessBatchData</RequestType>
+			<ListTitle>Projects</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<Batch>
+				<![CDATA[
+					<ows:Batch OnError="Return">
+						<Method ID="A1">
+							<SetList>%Projects%</SetList>
+							<SetVar Name="ID">%ProjectID%</SetVar><SetVar Name="Cmd">Save</SetVar>
+							<SetVar Name="urn:schemas-microsoft-com:office:office#ProjectStatus">%ProjectStatus%</SetVar>
+							<SetVar Name="urn:schemas-microsoft-com:office:office#ProjectStatusID">%ProjectStatusID%</SetVar>
+							<SetVar Name="urn:schemas-microsoft-com:office:office#_x002a__x002a__x002a_wplu_x002a_2">&lt;![CDATA[<Properties><Property><LookupKeyValue></LookupKeyValue><LookupLinkValue></LookupLinkValue><LookupDbStoreValue>%ProjectStatus%</LookupDbStoreValue><LookupDisplayValue>%ProjectStatus%</LookupDisplayValue></Property></Properties>]]&gt;</SetVar>
+						</Method>
+					</ows:Batch>]]>
+			</Batch>					
+		</OperationDefinition>	
+	</Items>
+</OperationDefinitionCollection>

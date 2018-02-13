@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Approvals</TableName>
+			<ListTitle>Approvals</ListTitle>
+			<!--
+			<CAML><![CDATA[<OrderBy><FieldRef Ascending = "TRUE" Name = "Year" /></OrderBy>]]></CAML>
+			-->
+			<SiteUrl>%ProjectURL%</SiteUrl>
+		</OperationDefinition>	
+	</Items>
+</OperationDefinitionCollection>

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <title>Email Team Members</title>
+    <link href="/_layouts/AppDesigner/Content-Cache/libs/jqueryui/1.10.3/css/base/jquery-ui.css" rel="stylesheet">
+    <!--ActionVars-->
+<style>
+body {margin:5px;padding:5px;font-size:smaller;overflow:auto}
+</style>    
+</head>
+<body>
+	<div id="busyLoader" style="text-align: center;">
+		<h2 style="text-align:center">
+		<span id="busySpinner"></span>
+		<img src="[SRA Root]/_layouts/AppDesigner/Apps/ApplicationDesigner/Images/ProcessDesigner.gif" style="vertical-align:middle;padding:5px"/>
+		<br/>Loading Form...</h2>
+	</div>
+    <div id="ActionForm" style="display:none">
+    	<!--
+        <div class="FormButtons">
+            <button class="Cancel">Cancel</button>
+            <button class="Save">Save</button>
+        </div>
+        -->
+        <div style="clear:both"></div>
+        <div id="DynamicForm">
+        <!--
+        	<label for="EmailTo">To </label>
+			<select data-placeholder="Select Team Members" multiple class="chzn-select" style="width:80%" id="EmailTo">
+			</select>
+			<br/>
+        	<label for="EmailSubject">Subject </label>
+			<input type="text" class="CWInput" style="width:79%" id="EmailSubject" name="EmailSubject"/>
+			<br/>
+			-->
+			
+			<table width="100%">
+			<!--
+				<tr>
+				<td></td>
+				<td><input id="SelectAllUsers" type="checkbox"> Select All</td>
+				</tr>
+			-->	
+				<tr>
+				<td><label for="EmailTo">To </label></td>
+				<td><select multiple="multiple" id="EmailTo"></select></td>
+				</tr>
+				<tr>
+				<td><label for="EmailSubject">Subject </label></td>
+				<td><input type="text" class="CWInput" style="width:99.7%" id="EmailSubject" name="EmailSubject"/></td>
+				</tr>
+				<tr>
+				<td><label for="EmailLinkedDoc">Document </label></td>
+				<td>
+					<select name="LinkedDoc" id="LinkedDoc">
+					</select>
+				</td>
+				</tr>
+				<tr>
+				<td><label for="EmailBody">Body </label></td>
+				<td><textarea name="EmailBody" id="EmailBody" rows="10"></textarea></td>
+				</tr>
+			</table>
+			<!--
+        	<label for="EmailTo">Body </label>
+        	-->
+			
+			
+        </div>        
+        <div class="FormButtons">
+        	<button class="Save">Send Email</button>
+            <button class="Cancel">Cancel</button>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    <script src="/_layouts/AppDesigner/Content-Cache/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/_layouts/AppDesigner/Content-Cache/libs/jqueryui/1.10.3/jquery-ui-1.10.3.custom.min.js"></script>
+    <script id="actionjs" src="/_layouts/CorasWorks.Central.Administration/Resources/CorasWorks/Scripts/CWS_ActionControls.js"></script>
+    <script src="/_layouts/AppDesigner/components/caps/1.0.6/caps.js"></script>
+	<script type="text/javascript">
+	var CKEDITOR_BASEPATH = '';
+			$.ajax({
+				 type:'POST',
+		         dataType:'json',
+		         cache: false,
+				 async : true,
+		         url:'../../_layouts/CorasWorksApps/CorasWorksApplicationService.ashx',
+				data : {
+					RequestType : 'CheckVariables',
+					TableName: 'BaseNav',
+					CWVariable: '[SRA Root]',
+					OutputType : 'json'
+				},
+				success: function(json){
+				CKEDITOR_BASEPATH = json.NewDataSet.BaseNav.CWVariable.value +"/Resources/CKeditor/";
+							$.getScript(json.NewDataSet.BaseNav.CWVariable.value +"/Resources/paramquery/pqselect.min.js").done(function( script, textStatus ) {});
+							$.getScript(json.NewDataSet.BaseNav.CWVariable.value +"/Resources/CKeditor/ckeditor.js").done(function( script, textStatus ) {
+								$.getScript(json.NewDataSet.BaseNav.CWVariable.value +"/Resources/ProjectEmail/ProjectEmail.js").done(function( script, textStatus ) {});
+							
+							});
+							//$.getScript(json.NewDataSet.BaseNav.CWVariable.value +"/Resources/CKeditor/adapters/jquery.js").done(function( script, textStatus ) {});
+							$('<link/>', {
+							   rel: 'stylesheet',
+							   type: 'text/css',
+							   href: json.NewDataSet.BaseNav.CWVariable.value + '/Resources/paramquery/pqselect.min.css'
+							}).appendTo('head');					
+							$('<link/>', {
+							   rel: 'stylesheet',
+							   type: 'text/css',
+							   href: json.NewDataSet.BaseNav.CWVariable.value + '/Resources/ProjectEmail/ProjectEmail.css'
+							}).appendTo('head');		
+										
+				},
+				error : function (xhr, status, error) {
+					alert("Error:\n" + xhr.responseText);
+				}
+		
+			});		
+	</script>
+</body>
+</html>

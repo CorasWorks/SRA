@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Subcategories</TableName>
+			<ListTitle>FinancialSubcategories</ListTitle>
+			<!--
+			<CAML><![CDATA[<Query><Where><And><Contains><FieldRef Name="FinancialCategories"/><Value Type="Text">%PSelectValue%</Value></Contains><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></And></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			-->
+			<CAML><![CDATA[<Query><Where><And><Eq><FieldRef Name="FinancialCategories" LookupId="TRUE"/><Value Type="LookupMulti">%PSelectValue%</Value></Eq><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></And></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

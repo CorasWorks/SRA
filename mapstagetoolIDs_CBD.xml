@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>MapStages</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<TableName>MapStages</TableName>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Map"/>
+						<FieldRef Name="Stage"/>
+						<FieldRef Name="MapID"/>
+						<FieldRef Name="StageID"/>						
+						<FieldRef Name="StagePosition"/>						
+						<FieldRef Name="Tollgate"/>						
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>MapStageTools</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<TableName>MapStageTools</TableName>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Tool"/>
+						<FieldRef Name="Stage"/>
+						<FieldRef Name="MapName"/>
+						<FieldRef Name="ToolID"/>
+						<FieldRef Name="MapStageID"/>						
+						<FieldRef Name="ToolPosition"/>						
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

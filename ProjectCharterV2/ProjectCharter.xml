@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Projects</TableName>
+			<ListTitle>Projects</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="URL"/><Value Type="Text">%ISiteURL%</Value></Eq></Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions><RowLimit>1</RowLimit>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Tools</TableName>
+			<ListTitle>Tools</ListTitle>
+			<CAML><![CDATA[<ViewFields><FieldRef Name="Title"/><FieldRef Name="Purpose"/></ViewFields><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>	
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Milestones</TableName>
+			<ListTitle>Milestones</ListTitle>
+			<CAML><![CDATA[<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>MeInTeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+			<Eq><FieldRef Name="SharePointUser" LookupId='TRUE' /><Value Type="Lookup" >%CWUID%</Value></Eq>
+			</Where></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+			<Neq><FieldRef Name="Role"/><Value Type="Text">SiteLevelApprover</Value></Neq>
+			</Where></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>EditCharter</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+						<And>
+							<Or>
+							<Eq><FieldRef Name="Role"/><Value Type="Text">Team Leader</Value></Eq>
+							<Eq><FieldRef Name="Editor0"/><Value Type="Bool">1</Value></Eq>
+							</Or>
+							<Eq><FieldRef Name="SharePointUser" LookupId='TRUE' /><Value Type="Lookup" >%CWUID%</Value></Eq>
+						</And>
+						</Where></Query><QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Documents</TableName>
+			<ListTitle>Documents</ListTitle>
+			<CAML><![CDATA[
+					<Query>
+					<OrderBy><FieldRef Name='Modified' Ascending='False'/></OrderBy></Query>
+					<QueryOptions><ViewAttributes Scope='Recursive'/><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Methodology</TableName>
+			<ListTitle>Documents</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+			<IsNotNull><FieldRef Name='Methodology' /></IsNotNull>
+			</Where></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Map</TableName>
+			<ListTitle>Map</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+			<Eq><FieldRef Name='Status' /><Value Type='Text'>Inactive</Value></Eq>
+			</Where><OrderBy><FieldRef Name='Modified' Ascending='False'/></OrderBy></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Approvals</TableName>
+			<ListTitle>Approvals</ListTitle>
+			<!--
+			<CAML><![CDATA[<OrderBy><FieldRef Ascending = "TRUE" Name = "Year" /></OrderBy>]]></CAML>
+			-->
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>			
+	</Items>
+</OperationDefinitionCollection>

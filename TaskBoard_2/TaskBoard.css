@@ -1,0 +1,386 @@
+﻿.toggleTaskDetails{
+	cursor:pointer;	
+}
+
+.required-Field{
+	color:red;
+	font-size:20pt;	
+}
+.input-Form tr {
+	margin-top: 10px;
+}
+.new-Task{
+	display:none;
+	color: #f6931f;
+}
+
+table {
+	border-collapse:collapse;
+}
+.activeFilter{
+	color:#f6931f;
+	font-weight:normal;
+	font-size:.8em;
+}
+.filter-checked {
+	z-index: 50;
+	position: absolute;
+}
+.edit-Actions {
+	float: right;
+}
+.edit-Form-noEdit {
+	color: #663300;
+}
+.edit-Form-Edit {
+	color: #f6931f;
+}
+#edit-Task-Title {
+	font-weight: bold;
+	color: black;
+}
+.legend-section {
+	color: #000000;
+	/*background-color: #FFCC00;*/
+	font-weight: bold;
+	font-size: 1.2em;
+	margin: 1px;
+}
+.legend-items {
+	font-size: 1em;
+}
+.progressbar {
+	height: 12px;
+	display: none;
+	margin-bottom:.5em;
+}
+
+.projectManagers li {
+	list-style-type: none;
+}
+.task-Priority-Star {
+	cursor: pointer;
+}
+.task-Details {
+	display: none;
+	font-size:.8em;
+	border: 1px solid;
+  	border-radius: 5px;
+
+}
+/*
+#taskEdit {
+	width: 300px;
+}
+*/
+.task-instructions {
+	color: gray;
+	font-size: 7pt;
+	font-style: italic;
+	text-align: center;
+}
+.teamMembers li {
+	list-style-type: none;
+}
+.tasksTable{
+	width:100%;
+}
+.tasksTable tbody tr td {
+}
+.tasksTable thead tr td{
+	text-align: center;
+	font-weight: bolder;
+	width:10%;
+}
+
+.task-Table-Overlay {
+	background-image: url('Images/Backgrounds/edit_bg.png');*/;
+	opacity: 0.5;
+	filter: alpha(opacity=50); /* For IE8 and earlier */;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: none;
+}
+#statusColumnHeaders td {
+	margin:.1em;
+}
+#statusColumnHeaders td div{
+	width:98%;
+	
+}
+#sortable {
+	list-style-type: none;
+	margin: 2px;
+	padding: 2px 2px;
+	float: left;
+	margin-right: 10px;
+	width: 95%;
+	background-color: #F0F1FF;
+	height:600px;
+	overflow:auto;
+}	
+	/*ie scrollbar styling */
+<!--#sortable {
+   scrollbar-face-color:transparent;
+   scrollbar-arrow-color:#333333;
+   scrollbar-track-color:#ededed;
+   scrollbar-shadow-color:#6c6c6c;
+   scrollbar-highlight-color:#ffffff;
+   scrollbar-3dlight-color:#ffffff;
+   scrollbar-darkshadow-Color:#6c6c6c;
+   
+}-->
+#sortable li {
+	list-style-type: none;
+	margin: 0 5px 5px 5px;
+	padding: 5px;
+	font-size: 1.1em;
+	width: 90%;
+}
+.img-Clickable {
+	cursor: pointer;
+}
+#priority-filter, #pastdue-filter, #assignment-filter {
+	cursor: pointer;
+}
+#user-select{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 1.0em;
+	color: #f6931f;
+	width: 95%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+	display: none;
+}
+.instructions {
+	font-style: italic;
+	color: #C0C0C0;
+	font-family: "Calibri";
+	text-align: center;
+}
+#project-Site-Users {
+	display: none;
+}
+.checkbox-AssignedTo, .checkbox-AssignedTo-All {
+	padding-right: 3px;
+}
+#statusColumnHeaders{
+	font-size:1.2em;
+}
+/*
+#taskEdit {
+	display: none;
+	z-index: 99;
+	padding: 10px;
+	position: absolute;
+}
+*/
+.task-Item {
+	cursor: move;
+	font-size:9px;
+	z-index=2;
+	background-color: #c5dbec;
+	color: #0859a5;
+	
+}
+
+.rounded-corners {
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+.legend-section{
+	border-top:1px #CCCCCC inset;
+	border-bottom:1px #CCCCCC inset;
+	margin:.2em;
+	padding:.1em;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	
+}
+.legend-container{
+	padding:.3em .1em .1em 1.0em
+}
+#AssignedToSelector div{
+	margin-top:.3em;
+}
+#AssignedToSelector{
+	display:none;
+	height:60px;
+	margin:.3em;
+	padding:.5em;
+	overflow:auto;
+	background-color:#ffffff;
+	border:1 #f6931f solid;
+}
+
+.searchTasks{
+	color:#CCCCCC;
+	width:95%;
+	border:1 #f6931f solid;
+	font-style:italic;
+	margin:.3em
+}
+
+.cw-hide{
+	display:none;
+}
+
+div[role='dialog'] {
+    box-shadow: 0px 0px 65px -2px rgba(31,25,29,1);
+}
+.cw-label:not(.sameLine):after
+{
+    content: "\A";
+    white-space: pre;
+}
+.cw-input {
+	width: 300px;
+    padding: 4px;
+    font-family: Segoe UI;
+    font-size: 11pt;
+    border-style: none;
+}
+div.cw-input-wrapper
+{
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: White;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    display: inline-block;
+    margin-top: 3px;
+    margin-bottom: 6px;
+}
+/* remove input field highlighting*/
+textarea:focus, input:focus, select:focus{
+    outline: 0;
+}
+.ui-dialog-content {
+    background-color: #c5dbec !important;
+}
+
+.ui-dialog-buttonset{
+	padding-top: 10px;
+}
+.ui-dialog-titlebar-close{
+	min-width:21px;
+}
+
+.hasDatepicker {
+	width: 96px;	
+}
+
+input#actualWork,input#taskWork,input#complete{
+	width: 112px;	
+}
+
+
+select#priority{
+	width: 120px;
+}
+#taskTitle{
+	width: 380px;
+}
+.ui-datepicker-trigger{
+	position:relative;
+	top: 3px;
+}
+
+.cw-disabled{
+	background-color:#ebebe4 !important;
+	
+}
+div#assignedToWrapper{
+	margin-top: 1px;
+	width: 255px;
+}
+div#assignedToWrapper > div.pq-select-multiple{
+	border: none;
+	background: white;
+	margin-top: 3px;
+}
+div#assignedToWrapper > div.pq-select-multiple > div > span{
+	margin: 2px;
+}
+div#assignedToWrapper > div.pq-select-multiple > div > span:hover{
+	opacity: 0.7;
+}
+
+
+.cw-input-error{
+	 border:1px red dashed;
+}
+div#data Wrapper{
+	display: table-row
+}
+div#dataLeft{
+	display:table-cell;
+	
+}
+div#dataRight{
+	display:table-cell;
+	padding-left: 10px;
+}
+
+
+
+.cw-dialog-success {
+	clear:both;
+    background-image: url('Images/Success.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding-left: 50px;
+    padding-top: 20px;
+    height: 25px;
+}
+
+.cw-dialog-failure {
+	clear:both;
+    background-image: url('Images/Failure.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding-left: 50px;
+    padding-top: 20px;
+    height: 25px;
+}
+.cw-dialog-exclamation {
+	clear:both;
+    background-image: url('Images/Exclamation.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding-left: 50px;
+    padding-top: 20px;
+    height: 25px;
+}
+
+div.task-Details > div > span{
+	font-weight: 600;
+  	width: 75px;
+  	display: inline-block;
+  	text-align: right;
+  	padding-right: 2px;
+}
+div#assignedTo-wrapper{
+	font-weight: 600;
+  	width: 75px;
+  	display: inline-block;
+  	text-align: right;
+  	padding-right: 2px;
+  	display:table-cell;
+  	vertical-align:top;
+	
+}
+div#name-wrapper{
+  display: table-cell;
+}
+.work-slider{
+	width:95%; 
+	float:right; 
+	margin-bottom: 5px
+}

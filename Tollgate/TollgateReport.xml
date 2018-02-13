@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Projects</ListTitle>
+			<TableName>Projects</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<Where>
+							<Eq>
+								<FieldRef Name="URL"/>
+								<Value Type="Text">%SiteURL%</Value>
+							</Eq>
+						</Where>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Division"/>
+						<FieldRef Name="Region"/>
+						<FieldRef Name="Location"/>
+						<FieldRef Name="Methodology"/>
+						<FieldRef Name="Category"/>
+						
+						<FieldRef Name="ProjectStatus"/>
+						<FieldRef Name="ProjectStatusKPI"/>
+						<FieldRef Name="CharterGoalStatement"/>
+						<FieldRef Name="CharterProblemStatement"/>
+						<FieldRef Name="KeyAccomplishments"/>
+						<FieldRef Name="KeyUpcomingEvents"/>
+						<FieldRef Name="KeyRisksIssues"/>
+						<FieldRef Name="BenefitsTarget"/>
+						<FieldRef Name="BenefitsActual"/>
+						<FieldRef Name="ResourcesExpenseTargeted"/>
+						<FieldRef Name="ResourcesExpenseActual"/>
+						<FieldRef Name="ResourcesCapitalTargeted"/>
+						<FieldRef Name="ResourcesCapitalActual"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Project KPIs</ListTitle>
+			<TableName>KPICategories</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Description"/>
+						<FieldRef Name="Active"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Default"/>
+						<FieldRef Name="SortOrder"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Project KPI Levels</ListTitle>
+			<TableName>KPILevels</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Active"/>
+						<FieldRef Name="Color"/>
+						<FieldRef Name="Code"/>
+						<FieldRef Name="Image"/>																		
+						<FieldRef Name="SortOrder"/>																		
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl>
+			</SiteUrl>
+			<ListTitle>ProjectKPIs</ListTitle>
+			<TableName>ProjectStatusKPIs</TableName>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="ProjectKPICategory"/>
+						<FieldRef Name="ProjectKPILevel"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>False</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl>
+			</SiteUrl>
+			<ListTitle>History</ListTitle>
+			<TableName>History</TableName>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<Where>
+							<Eq>
+								<FieldRef Name="Title"/>
+								<Value Type="Text">StatusUpdate</Value>
+							</Eq>
+						</Where>
+						<OrderBy><FieldRef Name="Modified" Ascending="FALSE"/></OrderBy>
+					</Query>
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Modified"/>
+						<FieldRef Name="Editor"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<RowLimit>1</RowLimit>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Milestones</TableName>
+			<ListTitle>Milestones</ListTitle>
+			<CAML><![CDATA[<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>TeamMembers</TableName>
+			<ListTitle>Team Members</ListTitle>
+			<CAML><![CDATA[<Query><Where>
+			<Neq><FieldRef Name="Role"/><Value Type="Text">SiteLevelApprover</Value></Neq>
+			</Where></Query>
+			<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Stages</TableName>
+			<ListTitle>Stages</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>MapStages</TableName>
+			<ListTitle>MapStages</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>StageDeliverables</TableName>
+			<ListTitle>StageDeliverables</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>KeyQuestions</TableName>
+			<ListTitle>KeyQuestions</ListTitle>
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		
+	</Items>
+</OperationDefinitionCollection>

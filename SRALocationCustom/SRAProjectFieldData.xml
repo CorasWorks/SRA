@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Division</TableName>
+			<ListTitle>Divisions</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>ProjectSecurity</TableName>
+			<ListTitle>ProjectSecurityRestrictions</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+<!--		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Methodology</TableName>
+			<ListTitle>Maps</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+-->		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Category</TableName>
+			<ListTitle>ProjectCategories</ListTitle>
+			<CAML><![CDATA[<Query><Where><Eq><FieldRef Name="Active"/><Value Type="Bool">1</Value></Eq></Where><OrderBy><FieldRef Ascending = "TRUE" Name = "Title" /></OrderBy></Query>]]></CAML>		
+			<SiteUrl></SiteUrl>
+		</OperationDefinition>
+
+		<OperationDefinition>
+			<RequestType>CheckVariables</RequestType>
+			<TableName>CWUserID</TableName>
+		</OperationDefinition>		
+	</Items>
+</OperationDefinitionCollection>

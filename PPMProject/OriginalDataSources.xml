@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Projects>
+	<RiskAssessment>
+		<data><![CDATA[
+		<%ISiteURL%>/DataCache/Risks.xml?Query=<Where><Eq><FieldRef Name='Status' /><Value Type='Choice'>Risk</Value></Eq></Where>;
+		]]>
+		</data>
+		<xslt>
+		</xslt>
+	</RiskAssessment>
+	<MyProjectView>
+		<data><![CDATA[
+		<%ISiteURL%>/DataAccess/My Project KPIs/Data.aspx;
+		>>><%ISiteURL%>/DataCache/Tasks.xml;
+		>>><%ISiteURL%>/DataCache/ExpenseTrackingCategories.xml;
+		>>><%ISiteURL%>/DataCache/ExpenseTracking.xml;
+		>>>[PPM v3.1 ACS]/Toolset/DateRanges/DateRanges.aspx;
+		>>><%ISiteURL%>/DataCache/OverdueTasks.xml;
+		<%ISiteURL%>/DataAccess/Risks/Data.aspx?Query=<Where><Contains><FieldRef Name='AssignedTo' /><Value Type='User'>[Me]</Value></Contains></Where>;
+		<%ISiteURL%>/DataAccess/Deliverables/Data.aspx?Query=<Where><Contains><FieldRef Name='Assigned%5Fx0020%5FTo0' /><Value Type='User'>[Me]</Value></Contains></Where>;
+		]]>
+		</data>
+		<xslt>
+		</xslt>
+	</MyProjectView>
+	<ProjectDashboard>
+		<data><![CDATA[
+		<%ISiteURL%>/DataCache/CalculatedProjectKPIs.xml;
+		]]>
+		</data>
+		<xslt>
+		</xslt>
+	</ProjectDashboard>
+	<MyDashboard>Acce
+		<data><![CDATA[
+		<%ISiteURL%>/DataCache/Projects.xml;
+		<%ISiteURL%>/Datass/CurrentUser/Data.aspx;
+		]]>
+		</data>
+		<xslt>
+		</xslt>
+	</MyDashboard>
+	<PMODashboard>
+		<data><![CDATA[
+		]]>
+		</data>
+		<xslt>
+		</xslt>
+	</PMODashboard>
+</Projects>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Columns</TableName>
+			<ListTitle>Status</ListTitle>
+			<CAML><![CDATA[
+				<ViewFields>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="DefaultPercentComplete"/>
+				</ViewFields>
+				<QueryOptions>
+					<IncludeMandatoryColumns>True</IncludeMandatoryColumns>
+				</QueryOptions>
+			]]></CAML>
+
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Items</TableName>
+			<ListTitle>Tasks</ListTitle>
+			<CAML><![CDATA[
+				<ViewFields>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="Status"/>
+					<FieldRef Name="Priority"/>
+					<FieldRef Name="AssignedTo"/>
+					<FieldRef Name="StartDate"/>
+					<FieldRef Name="DueDate"/>
+					<FieldRef Name="PercentComplete"/>
+					<FieldRef Name="Complete" />
+				</ViewFields>
+				<QueryOptions>
+					<IncludeMandatoryColumns>True</IncludeMandatoryColumns>
+				</QueryOptions>
+			]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Priorities</TableName>
+			<ListTitle>Priority</ListTitle>
+			<CAML><![CDATA[
+				<ViewFields>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="icon"/>
+				</ViewFields>
+				<QueryOptions>
+					<IncludeMandatoryColumns>True</IncludeMandatoryColumns>
+				</QueryOptions>
+			]]></CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListInfo</RequestType>
+			<TableName>Metadata</TableName>
+			<ListTitle>Tasks</ListTitle>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>CheckVariables</RequestType>
+			<TableName>CWVariables</TableName>
+		</OperationDefinition>
+	
+	</Items>
+</OperationDefinitionCollection>

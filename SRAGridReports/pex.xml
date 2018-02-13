@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Projects</ListTitle>
+			<TableName>Projects</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<Query>
+						<Where>
+								<And>
+									<And>
+										<BeginsWith>
+											<FieldRef Name="URL"/>
+											<Value Type="Text">%PortFolioURL%/</Value>
+										</BeginsWith>
+										<Neq>
+											<FieldRef Name="Division"/>
+											<Value Type="Text">Green Belt Classes (for training only)</Value>
+										</Neq>
+									</And>
+									<And>
+										<Neq>
+											<FieldRef Name="ProjectStatus"/>
+											<Value Type="Text">Inactive</Value>
+										</Neq>
+										<Neq>
+											<FieldRef Name="ProjectStatus"/>
+											<Value Type="Text">Delete</Value>
+										</Neq>
+									</And>
+								</And>
+`						</Where>
+					</Query>				
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="URL"/>
+						<FieldRef Name="Division"/>
+						<FieldRef Name="Region"/>
+						<FieldRef Name="Location"/>
+						<FieldRef Name="ProjectStatusID"/>
+						<FieldRef Name="ProjectStatusKPI"/>						
+						<FieldRef Name="MapID"/>
+						<FieldRef Name="BenefitsTarget"/>
+						<FieldRef Name="BenefitsActual"/>
+						<FieldRef Name="BenefitsFull"/>
+						<FieldRef Name="adhoctagging"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+						<DatesInUtc>True</DatesInUtc>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Divisions</ListTitle>
+			<TableName>Divisions</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Regions</ListTitle>
+			<TableName>Regions</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Divisions-Regions</ListTitle>
+			<TableName>Divisions-Regions</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="ParentID"/>
+						<FieldRef Name="RegionID"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>			
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Locations</ListTitle>
+			<TableName>Locations</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="ParentID"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>FinancialCategories</ListTitle>
+			<TableName>Categories</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="PExReportGroup"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>	
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>FinancialSubcategories</ListTitle>
+			<TableName>Subcategories</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Maps</ListTitle>
+			<TableName>Maps</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>			
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>ProjectStatuses</ListTitle>
+			<TableName>Statuses</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>		
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<ListTitle>Project KPI Levels</ListTitle>
+			<TableName>KPIs</TableName>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<CAML>
+				<![CDATA[
+					<ViewFields>
+						<FieldRef Name="ID"/>
+						<FieldRef Name="Title"/>
+						<FieldRef Name="Code"/>
+						<FieldRef Name="Image"/>
+					</ViewFields>
+					<QueryOptions>
+						<ViewFieldsOnly>True</ViewFieldsOnly>
+					</QueryOptions>
+				]]>
+			</CAML>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

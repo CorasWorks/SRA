@@ -1,0 +1,65 @@
+﻿#theBoard, .boardColumn, .colTitle, .boardItem{
+	
+	border-bottom:1px silver solid;
+	border-right:1px silver solid;
+	border-left:1px #F1FFF1 solid;
+	border-top:1px #F1FFF1 solid;	
+	border-radius:10px;
+	margin:3px;
+	padding:5px;
+}
+
+#theBoard{
+	width:98%;
+	height:600px;
+}
+#boardTitle{
+	font:bold 16pt Arial;
+	padding-bottom:5px;
+	margin-bottom:5px;
+	border-bottom:1px lime solid;
+}
+#boardData{
+	height:580px;
+	text-align:center;
+	display:none;
+  overflow: auto;
+  white-space: nowrap;	
+}
+.boardColumn{
+	display:inline-block;
+	width:19%;
+	height:550px;
+	vertical-align:top;
+}
+.colTitle{
+	display:block;
+	font:bold 12pt Arial;	
+	background-color:#EEFFEE;
+  	overflow: auto;
+  	white-space:normal;	
+}
+.boardItem{
+	display:block;
+	text-align:left;
+  	overflow: auto;
+  	white-space:normal;		
+}
+.boardItem .title
+{
+	font:bold 12pt Arial;
+}
+.boardItem .assignedTo{
+	color:gray;
+	font-size:8pt;
+}
+
+.priorityHigh{
+	background-color:#FFC2C2;
+}
+.priorityMedium{
+	background-color:#FFFFC2;
+}
+.priorityLow{
+	background-color:#C2FFC2;
+}

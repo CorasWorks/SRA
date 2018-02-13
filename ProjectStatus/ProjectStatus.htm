@@ -1,0 +1,137 @@
+﻿<link rel="stylesheet" type="text/css" href="[SRA Root]/resources/projectstatus/projectstatus.css">
+
+<!-- Loader -->
+<div id="busyLoader" style="text-align: center;" data-bind="visible:!allowUpdate()">
+    <h2 style="text-align:center">
+        <span id="busySpinner"></span>
+        <img src="/_layouts/AppDesigner/Apps/ApplicationDesigner/Images/ProcessDesigner.gif" style="vertical-align:middle;padding:5px"/>
+        <br/>
+        <span data-bind="text:busyMessage">Loading</span> Project Information...
+    </h2>
+</div>
+<!-- Loader end -->
+
+<div class="projectStatusWrapper" data-bind="visible:allowUpdate()">
+	<div class="projectStatusHeader">
+		<!-- ko if: canEdit()-->
+		<button class="ui-button ui-widget ui-corner-all ui-button-text-icon-primary" data-bind="click:update">
+			<span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
+			<span class="ui-button-text">Update Status</span>
+		</button>
+		<button class="ui-button ui-widget ui-corner-all ui-button-text-icon-primary" data-bind="click:showAvailableKPIs">
+			<span class="ui-button-icon-primary ui-icon ui-icon-plusthick"></span>
+			<span class="ui-button-text">Add KPI</span>
+		</button>
+		<!-- /ko-->
+
+	</div>
+	<div class="sraToolbar projectStatusAvailableKPIsWrapper">
+		<div class="addKPIToolbarTips">
+			<div class="closeAddKPIs">Close Add KPI Toolbar</div>
+		</div>
+		<div class="" data-bind="foreach:availableKpis"> 
+			<div class="projectAvailableKPI" data-bind="click: $parent.addKPI">
+				<img class="projectStatusKPILevel" height="24" width="24" data-bind="attr:{src:icon,title:title}"/>
+				<span data-bind="text:name, attr:{title:tip}"></span>
+			</div>			
+		</div>
+		<div>
+			<div class="userTip">Click a KPI to add it to your project.</div>		
+		</div> 
+	</div>
+	<div class="sraToolbar projectStatusKPIsWrapper">
+		<!-- ko if: canEdit()-->
+		<div class="userTip">Click KPI indicator to change.</div>
+		<!-- /ko -->
+		<div class="projectKPI" data-bind="with:ProjectKPI">
+			<img class="projectStatusKPILevel" data-bind="click:$parent.canEdit() ? $parent.changeKPILevel:null, attr:{src:icon,title:title}" height="24" width="24"/>
+			<span>Overall Project: </span><select id="projectStatusSelect"></select>
+		</div>				
+		<!-- ko foreach:kpis -->
+			<div class="projectKPI">
+				<img class="projectStatusKPILevel" height="24" width="24" data-bind="attr:{src:icon,title:title}, click: $parent.canEdit() ? $parent.changeKPILevel:null"/>
+				<span data-bind="text:name, attr:{title:tip}"></span>
+				<!-- ko if: lock == '0' -->
+					<!-- ko if: $parent.canEdit()--> 
+					<span class="removeKPI ui-button ui-state-default ui-corner-all ui-icon ui-icon-minus" data-bind="click: $parent.removeKPI" title="Click to remove."></span>
+					<!-- /ko -->
+				<!-- /ko -->
+			</div>			
+		<!-- /ko -->	
+	</div>
+	<!-- ko if: canEdit()-->
+	<div class="projectStatusNarrativesWrapper">
+		<div class="projectStatusNarrativeWrapper">
+			<div class="projectStatusNarrativeLabel sraBackground">Key Accomplishments:</div>
+			<textarea class="projectStatusKeyAccomplishments projectStatusNarrativeInput" data-bind="value: KeyAccomplishments, click:narrativeEdit, valueUpdate:'afterkeydown',limitCharacters: maxChars()"></textarea>
+			<div class="textareaChars"><span class="charCountDisplay" data-bind="text:remainingCharsKey1"></span></div>
+		</div>
+		<div class="projectStatusNarrativeWrapper">
+			<div class="projectStatusNarrativeLabel sraBackground">Key Upcoming Events:</div>
+			<textarea class="projectStatusKeyUpcomingEvents projectStatusNarrativeInput" data-bind="value: KeyUpcomingEvents, click:narrativeEdit, valueUpdate:'afterkeydown',limitCharacters: maxChars()"></textarea >
+			<div class="textareaChars"><span class="charCountDisplay" data-bind="text:remainingCharsKey2"></span></div>
+		</div>
+		<div class="projectStatusNarrativeWrapper">
+			<div class="projectStatusNarrativeLabel sraBackground">Key Risks &amp; Issues:</div>
+			<textarea class="projectStatusKeyRisksIssues projectStatusNarrativeInput" data-bind="value: KeyRisksIssues, click:narrativeEdit, valueUpdate:'afterkeydown',limitCharacters: maxChars()"></textarea>
+			<div class="textareaChars"><span class="charCountDisplay" data-bind="text:remainingCharsKey3"></span></div>	
+		</div>
+	</div>
+	<!-- /ko -->
+	<!-- ko ifnot: canEdit()-->
+	<div class="projectStatusNarrativesWrapper">
+		<div class="projectStatusNarrativeWrapper">
+			<div class="projectStatusNarrativeLabel sraBackground">Key Accomplishments:</div>
+			<div class="projectStatusKeyAccomplishments projectStatusNarrativeInput" data-bind="text: KeyAccomplishments"></div>
+			<div class="textareaChars"><span class="charCountDisplay" data-bind="text:remainingCharsKey1"></span></div>
+		</div>
+		<div class="projectStatusNarrativeWrapper">
+			<div class="projectStatusNarrativeLabel sraBackground">Key Upcoming Events:</div>
+			<div class="projectStatusKeyUpcomingEvents projectStatusNarrativeInput" data-bind="text: KeyUpcomingEvents"></div>
+			<div class="textareaChars"><span class="charCountDisplay" data-bind="text:remainingCharsKey2"></span></div>
+		</div>
+		<div class="projectStatusNarrativeWrapper">
+			<div class="projectStatusNarrativeLabel sraBackground">Key Risks &amp; Issues:</div>
+			<div class="projectStatusKeyRisksIssues projectStatusNarrativeInput" data-bind="text: KeyRisksIssues"></div>
+			<div class="textareaChars"><span class="charCountDisplay" data-bind="text:remainingCharsKey3"></span></div>	
+		</div>
+	</div>
+	<!-- /ko -->
+	<div class="projectStatusFooter">
+		<!-- ko if: canEdit()-->
+		<button class="ui-button ui-widget ui-corner-all ui-button-text-icon-primary" data-bind="click:update">
+			<span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
+			<span class="ui-button-text">Update Status</span>
+		</button>
+		<!-- /ko -->
+		<button class="ui-button ui-widget ui-corner-all ui-button-text-only" data-bind="click:openDialog">
+			<span class="ui-button-text">View History</span>
+		</button>
+	</div>
+</div>
+
+<div id="dialog" class="StatusUpdateHistories" data-bind="dialog: {autoOpen:false, title:'History of Status Updates', minWidth:800, minHeight:600}, dialogVisible:dialogIsOpen">
+	<div data-bind="foreach:history">
+		<div class="StatusUpdateHistory">
+			<div data-bind="text:WhoWhen" class="whoWhen"></div>
+			<div>
+				<div class="historyKPI" data-bind="with:ProjectKPI">
+					<img class="projectStatusKPILevel" data-bind="attr:{src:icon}"/>
+					<span data-bind="text:status"></span>
+				</div>
+					
+				<!-- ko foreach:kpis -->
+					<div class="historyKPI">
+						<img data-bind="attr:{src:icon, title:leveltitle}"/>
+						<span data-bind="text:value" class="historyKPICategory"></span>
+					</div>				
+				<!-- /ko -->
+			</div>
+			<div class="keyItem"><span class="historylabel">Key Accomplishments: </span><span data-bind="text:KeyAccomplishments"></span></div>
+			<div class="keyItem"><span class="historylabel">Key Upcoming Events: </span><span data-bind="text:KeyUpcomingEvents"></span></div>
+			<div class="keyItem"><span class="historylabel">Key Risks and Issues: </span><span data-bind="text:KeyRisksIssues"></span></div>					
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="[SRA Root]/resources/projectstatus/projectstatuskovm.js"></script>
+<script type="text/javascript" src="[SRA Root]/resources/projectstatus/projectstatus.js"></script>

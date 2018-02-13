@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>Regions</TableName>
+			<ListTitle>Regions</ListTitle>
+			<CAML><![CDATA[
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="Active"/>
+				</ViewFields>
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<TableName>RegionsDivs</TableName>
+			<ListTitle>Divisions-Regions</ListTitle>
+			<CAML><![CDATA[
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="URL"/>
+					<FieldRef Name="Title"/>
+					<FieldRef Name="RegionID"/>
+				</ViewFields>
+				<QueryOptions><DateInUtc>False</DateInUtc></QueryOptions>]]></CAML>		
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>
+	</Items>
+</OperationDefinitionCollection>

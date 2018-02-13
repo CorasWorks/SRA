@@ -1,0 +1,25 @@
+﻿<?xml version="1.0"?>
+<OperationDefinitionCollection>
+	<Items>
+		<OperationDefinition>
+			<RequestType>GetListItems</RequestType>
+			<SiteUrl>[SRA Root]</SiteUrl>
+			<ListTitle>Projects</ListTitle>
+			<TableName>Project</TableName>
+			<CAML><![CDATA[
+				<Query>
+					<Where>
+						<Eq><FieldRef Name="URL"/><Value Type="Text">%ProURL%</Value></Eq>
+					</Where>
+				</Query>
+				<ViewFields>
+					<FieldRef Name="ID"/>
+					<FieldRef Name="ParentID"/>
+				</ViewFields>				
+				<QueryOptions><ViewFieldsOnly>True</ViewFieldsOnly></QueryOptions>
+				]]>
+			</CAML>
+			<SiteUrl>[SRA Root]</SiteUrl>
+		</OperationDefinition>	
+	</Items>	
+</OperationDefinitionCollection>
